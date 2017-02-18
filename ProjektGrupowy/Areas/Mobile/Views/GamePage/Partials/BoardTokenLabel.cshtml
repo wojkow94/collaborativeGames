@@ -1,0 +1,20 @@
+﻿@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Site.ViewModels
+@model  BoardTokenLabel
+
+<div class="ui label image @(Model.Tokens.PlayerId == Model.PlayerId ? "orange" : Model.Tokens.Token.Color) tokenLabel"
+     style="margin: 2px; border: 0px solid silver !important"
+     id="@Model.Tokens.Token.Id"
+     data-elementid="@Model.ElementId">
+    <div style="display: table">
+        <div style="display:table-row">
+            <div style="display: table-cell; vertical-align: middle">
+                <img src="@Platform.GetImage(Model.Tokens.Token.ImageIconId)" style="float: left" />
+            </div>
+            <div style="display: table-cell">
+                @Model.Tokens.Amount<span>$</span><br />
+                <span style="font-size: 10px">@Model.PlayerName</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProjektGrupowy.Models.Database.DBGameInstance>
+@using ProjektGrupowy.Models.Database.DAO
+
+@if (Model != null)
+{
+<table class="ui table stripped">
+    <thead>
+        <tr>
+            <th>@ProjektGrupowy.Resources.Labels.GameName</th>
+            <th>@ProjektGrupowy.Resources.Labels.PlayName</th>
+            <th>@ProjektGrupowy.Resources.Labels.Created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @using (var dao = new GameDefinitionDAO())
+        {
+            foreach (var game in Model)
+            {
+                <tr>
+                    <td>@dao.GetGameDefinition(game.DefinitionID).Name</td>
+                    <td>@game.Name</td>
+                    <td>
+                        @{var created = @game.Created.ToString("dd-MM-yyyy HH:mm").Replace('-', '.').Split(' ');}
+                        <div>@created[0]</div>
+                        <div style="color: silver">@created[1]</div>
+                    </td>
+                    <td style="text-align:center">
+                        <a class="ui button blue" href="/Site/GamePage/?gameId=@game.ID">
+                            @ProjektGrupowy.Resources.Labels.Play
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+}

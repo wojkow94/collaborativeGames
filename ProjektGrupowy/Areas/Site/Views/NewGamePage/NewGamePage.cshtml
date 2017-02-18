@@ -1,0 +1,38 @@
+﻿@using ProjektGrupowy.Models.Core
+@model List<ProjektGrupowy.Models.Database.DBGameDefinition>
+
+@{
+    Layout = "~/Areas/Site/Views/SiteLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Styles/App/Site/NewGamePage.css">
+
+
+<div>
+
+    @foreach (var game in Model)
+    {
+        
+        <div class='box'>
+            <div class='gameCell' style="background-image: url('@Platform.GetImage(game.ImageID).Replace(".", "_cover.")')" >
+                <div class="gameCaption">
+                    <table width="100%">
+                        <tr>
+                            <td>@game.Name</td>
+                            <td>
+                                <button class="ui button green btnPlay" id="@game.ID" style="float: right">@ProjektGrupowy.Resources.Labels.Play</button>
+                                <button class="ui button blue btnRules" id="@game.ID" style="float: right">@ProjektGrupowy.Resources.Labels.Rules</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+<script>
+    ProjektGrupowy.App.Site.pages.NewGamePage.init();
+</script>

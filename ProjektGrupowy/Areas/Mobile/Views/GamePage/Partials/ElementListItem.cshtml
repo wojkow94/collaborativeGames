@@ -1,0 +1,68 @@
+﻿@using ProjektGrupowy.Models.Game.Instances
+@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Site.ViewModels
+
+@model ProjektGrupowy.Models.Game.Instances.ElementInstance
+
+@{
+    var game = Platform.GetGameInstanceById(Model.GameId);
+    var currentPlayer = Platform.GetCurrentPlayer(game);
+}
+
+<div style="border-radius: 5px; padding: 5px; background-color: @Model.Color !important" class="ui segment inverted elementItem" id="@Model.Id">
+    <div class="ui title">
+        <span>
+            <img class="elementIcon" src="@Platform.GetImage(Model.Definition.ImageIconId)" />
+        </span>
+        @Model.Values[0]
+    </div>
+    <div class="content">
+
+        <table class="ui red stripped very basic inverted table unstackable" style="padding: 5px; background-color: @Model.Color !important">
+            @foreach (var attr in @Model.Definition.Attributes)
+            {
+                <tr>
+                    <td><b>@attr.Name</b></td>
+                    <td>@Model[attr.Name]</td>
+                </tr>
+            }
+            @foreach (var token in Model.Definition.Tokens)
+            {
+                <tr>
+                    <td>@token.Name</td>
+                    <td style="vertical-align: central;">
+                        <table>
+                            <tr>
+                                <td>@Model.GetTokenAmount(token)</td>
+                                <td>
+                                    @if (Model.Tokens.Count > 0 && Model.Tokens.Count(t => t.Amount > 0) > 0)
+                                    {
+                                        foreach (TokenBunch bunch in Model.Tokens)
+                                        {
+                                            if (bunch.Amount > 0)
+                                            {
+                                                @Html.Partial("Partials/BoardTokenLabel", new BoardTokenLabel(bunch, currentPlayer.Id, game.GetPlayerById(bunch.PlayerId).Name, Model.Id))
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    <button class="ui icon button mini tokenLabel" style="background-color: @Model.Color !important" id="@token.Id" data-elementid="@Model.Id">
+                                        <i class="ui icon plus"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td><b>Dodał:</b></td>
+                <td>@Platform.GetGameInstanceById(Model.GameId).GetPlayer(Model.PlayerId).Name</td>
+            </tr>
+        </table>
+        
+    </div>
+</div>
+

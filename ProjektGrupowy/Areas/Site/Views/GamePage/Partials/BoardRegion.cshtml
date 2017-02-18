@@ -1,0 +1,10 @@
+﻿@using ProjektGrupowy.Models.Game.Instances
+
+@model  List<ElementInstance>
+
+<div style="margin: 5px" class="elementsContainer">
+    @foreach (ElementInstance el in @Model)
+    {
+        @Html.Partial("Partials/BoardElementLabel", el)
+    }
+</div>

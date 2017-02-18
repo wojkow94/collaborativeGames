@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ProjektGrupowy.Models.Database.DBGameInstance>
+
+<table class="ui table very basic stripped">
+    <thead>
+        <tr>
+            <th>@ProjektGrupowy.Resources.Labels.GameName</th>
+            <th>@ProjektGrupowy.Resources.Labels.PlayName</th>
+            <th>@ProjektGrupowy.Resources.Labels.Created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td></td>
+                <td>@game.Name</td>
+                <td>
+                    @{var created = @game.Created.ToString("dd-MM-yyyy HH:mm").Replace('-', '.').Split(' ');}
+                    <div>@created[0]</div>
+                    <div style="color: silver">@created[1]</div>
+                </td>
+                <td>
+                    <a class="ui button blue mini" href="/Mobile/GamePage/?gameId=@game.ID">
+                        @ProjektGrupowy.Resources.Labels.Play
+                    </a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

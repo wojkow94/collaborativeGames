@@ -1,0 +1,98 @@
+﻿@using ProjektGrupowy.Models.Core
+
+@model OrderedElementsSet
+
+@using ProjektGrupowy.Models.Game.Instances
+@using ProjektGrupowy.Models.Game.Common
+ 
+@{
+    var game = Platform.GetGameInstanceById(Model.Elements.First().GameId);
+    var currentPlayer = @Platform.GetCurrentPlayer(game);
+}
+
+@if (@Model.Elements.FirstOrDefault() != null)
+{
+        
+        var sortDir = "";
+        if (Model.Sorting.Direction == SortMethod.DIRECTION.Asc)
+        {
+            sortDir = "ascending";
+        }
+        if (Model.Sorting.Direction == SortMethod.DIRECTION.Desc)
+        {
+            sortDir = "descending";
+        }
+        
+
+        <table class="ui fixed very basic sortable inverted table" style="margin-top: 5px; background-color:  @(Model.Elements.First().Color) !important">
+            <thead>
+                <tr>
+                    <th>
+                        L.p.
+                    </th>
+                    @foreach (var attr in @Model.Elements.First().Definition.Attributes)
+                    {
+                        var attrSort = sortDir;
+                        if (Model.Sorting.By != SortMethod.BY.Attribute || Model.Sorting.Id != attr.Id)
+                        {
+                            attrSort = "";
+                        }
+                        <th class="sorted @attrSort btnAttrSort" id="@attr.Id" data-elementDefId="@(Model.Elements.First().Definition.Id)">
+                            @attr.Name
+                        </th>
+                    }
+                    @foreach (var token in @Model.Elements.First().Definition.Tokens)
+                    {
+                        var tokenSort = sortDir;
+                        if (Model.Sorting.By != SortMethod.BY.Token || Model.Sorting.Id != token.Id)
+                        {
+                            tokenSort = "";
+                        }
+                        <th class="sorted @tokenSort btnTokenSort" id="@token.Id" data-elementDefId="@(Model.Elements.First().Definition.Id)">
+                            @token.Name
+                        </th>
+                    }
+                    @if (Model.Sorting.By != SortMethod.BY.Player)
+                    {
+                        sortDir = "";
+                    }
+                    <th class="sorted @sortDir btnPlayerSort" id="0" data-elementDefId="@(Model.Elements.First().Definition.Id)">
+                        Dodał
+                    </th>
+
+                    @if (@Platform.GetCurrentPlayer(Platform.GetGameInstanceById(Model.Elements.First().GameId)).IsModerator())
+                    {
+                        <th>
+
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+
+            @foreach (var element in @Model.Elements)
+            {
+                <tr style="background-color: @element.Color">
+                    <td>@element.Id</td>
+
+                    @foreach (var value in element.Values)
+                    {
+                        <td>@value</td>
+                    }
+
+                    @foreach (var token in element.Definition.Tokens)
+                    {
+                        <td>@element.GetTokenAmount(token)</td>
+                    }
+                    <td>@Platform.GetGameInstanceById(element.GameId).GetPlayer(element.PlayerId).Name</td>
+
+@if (@Platform.GetCurrentPlayer(Platform.GetGameInstanceById(Model.Elements.First().GameId)).IsModerator() || element.PlayerId == currentPlayer.Id)
+{
+                    <td>
+                        <button class="ui button inverted basic mini @element.Color icon btnEditElement" id="@element.Id"><i class="edit icon"></i></button>
+                    </td>
+}
+                </tr>
+            }
+    </table>
+}

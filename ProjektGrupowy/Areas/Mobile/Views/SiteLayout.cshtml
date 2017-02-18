@@ -1,0 +1,61 @@
+﻿@using ProjektGrupowy.Models.Core;
+@using ProjektGrupowy.Models.Game.Definitions;
+
+
+@{
+    Layout = "~/Views/BaseLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Styles/App/Site/Site.css">
+
+
+<div class="top">
+    <div class="ui dropdown" style="float: left; padding: 5px">
+
+        @if (Platform.IsUserLogged())
+        {
+            <div class="avatar">@User.Identity.Name[0]</div>
+        }
+        else
+        {
+            <button class="ui button icon blue" style="margin: 8px"><i class="ui icon list"></i></button>
+        }
+
+        <div class="menu">
+
+            @if (Platform.IsUserLogged())
+            {
+                <a class="item" id="btnProfile">@ProjektGrupowy.Resources.Labels.EditProfile</a>
+                <a class="item" id="btnLogout">@ProjektGrupowy.Resources.Labels.Logout</a>
+            }
+            else
+            {
+                <a class="item" id="btnRegister">@ProjektGrupowy.Resources.Labels.Register</a>
+                <a class="item" id="btnLogin">@ProjektGrupowy.Resources.Labels.Login</a>
+            }
+            <div class="item">
+                <div class="ui dropdown selectLanguage item">
+                    <i class="dropdown icon"></i>
+                    <span class="text">Select Language </span>
+                    <div class="menu">
+                        <div class="item btnLanguage" data-value="en" id="en"><i class="gb flag"></i>English</div>
+                        <div class="item btnLanguage" data-value="pl" id="pl"><i class="pl flag"></i>Polski</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="float: left; line-height: 60px; height: 60px">
+        <span style="font-size: 25px">@ProjektGrupowy.Resources.Labels.AppName</span>
+    </div>
+</div>
+
+<div class="body">
+    @RenderBody()
+</div>
+
+<script>
+    ProjektGrupowy.App.Mobile.pages.Layout.init();
+</script>
+

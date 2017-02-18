@@ -1,0 +1,64 @@
+﻿@using ProjektGrupowy.Models.Core;
+
+<div class="header">
+    @ProjektGrupowy.Resources.Labels.OpenGame
+</div>
+
+<style>
+    .newGameFormTable td {
+        padding: 10px;
+    }
+
+</style>
+
+<form id="formNewGame" method="post">
+    <table style="width:50%; margin: auto" class="newGameFormTable">
+        <tr>
+            <td style="padding: 10px">
+                @ProjektGrupowy.Resources.Labels.Name
+            </td>
+            <td>
+                <div class="ui input" data-content="@ProjektGrupowy.Resources.Labels.GameNameDesc">
+                    <input name="Name"/>
+                </div>
+            </td>
+        </tr>
+        @if (!Platform.IsUserLogged())
+        {
+            <tr>
+                <td style="padding: 10px">
+                    @ProjektGrupowy.Resources.Labels.Nick
+                </td>
+                <td>
+                    <div class="ui input" data-content="@ProjektGrupowy.Resources.Labels.GameNickDesc">
+                        <input name="Nick" />
+                    </div>
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td style="padding: 10px">
+                @ProjektGrupowy.Resources.Labels.Password
+            </td>
+            <td>
+                <div class="ui input" data-content="@ProjektGrupowy.Resources.Labels.GamePasswordDesc">
+                    <input type="password" name="Password" />
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <div class="errors">
+
+    </div>
+
+
+    <div class="actions">
+        <button type="submit" class="ui blue button">
+            @ProjektGrupowy.Resources.Labels.Create
+        </button>
+    </div>
+
+</form>

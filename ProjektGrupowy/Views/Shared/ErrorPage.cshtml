@@ -1,0 +1,27 @@
+﻿
+@using System;
+
+@model Exception
+
+@{
+    Layout = "~/Views/BaseLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Wystąpił błąd!</title>
+</head>
+<body>
+    <div style="padding: 50px">
+
+        <span class="ui label red"><h1>Wystąpił błąd! :(</h1></span>
+
+
+        @Html.Partial("ExceptionView", @Model)
+    </div>
+
+</body>
+</html>

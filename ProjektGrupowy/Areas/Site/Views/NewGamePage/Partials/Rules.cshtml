@@ -1,0 +1,94 @@
+﻿@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Site.ViewModels
+@model GameRules
+
+@{
+    var applications = Model.Applications.Split('&');
+    var elementsDesc = Model.Elements.Split('&');
+    var tokensDesc = Model.Tokens.Split('&');
+}
+
+<div style="padding: 50px; line-height: 20px">
+    
+    <div class="ui blue label">
+        <h1>@Model.GameDefinition.Name</h1>
+    </div>
+
+    <h2>Opis</h2>
+    @Model.Description
+
+    
+    <table class="ui table stripped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Element</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var element in Model.GameDefinition.Elements)
+            {
+                <tr>
+                    <td><img src="@Platform.GetImage(element.ImageIconId)" style="float: left; width: 32px" /></td>
+                    <td>@element.Name</td>
+                    <td>@elementsDesc[element.Id]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Opis elementów</h2>
+    @foreach(var element in Model.GameDefinition.Elements)
+    {
+        <span style="padding: 5px; float: left">
+            <img src="@Platform.GetImage(element.ImageIconId)" style="float: left; width: 32px" />
+        </span>
+        <h3>@element.Name</h3>
+        @Html.Partial("Partials/ElementDescTable", element)
+
+        if (element.Tokens.Count() > 0)
+        {
+            <h4>Żetony skojarzone z tym elementem</h4>
+            <table class="ui table stripped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Żeton</th>
+                        <th>Opis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var token in element.Tokens)
+                    {
+                        <tr>
+                            <td><img src="@Platform.GetImage(token.ImageIconId)" style="float: left; width: 32px" /></td>
+                            <td>@token.Name</td>
+                            <td>@tokensDesc[token.Id]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+
+    <h2>Przykład</h2>
+    <div style="text-align: center">
+        <img src="@Platform.GetImage(Model.GameDefinition.BackgorundImageId).Replace(".", "_cover.")" style="width: 80%" />
+    </div>
+
+    <h2>Zastosowanie</h2>
+    <div class="ui relaxed divided list">
+        @foreach (var app in applications)
+        {
+            <div class="item">
+                <i class="plus middle aligned icon"></i>
+                <div class="content">
+                    @app
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

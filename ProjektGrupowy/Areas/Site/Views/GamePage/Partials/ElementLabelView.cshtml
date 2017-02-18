@@ -1,0 +1,11 @@
+﻿@using ProjektGrupowy.Models.Game.Instances
+@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Core
+@model  ProjektGrupowy.Models.Game.Instances.ElementInstance
+<div class="ui label image elementLabel"
+      style="margin: 2px; background-color: @(Model.Color) !important; color: white" 
+      id="@Model.Id"
+      data-elementdefid="@Model.Definition.Id">
+    <img src="@Platform.GetImage(Model.Definition.ImageIconId)" />
+    @Model[Model.Definition.PrintedAttribute]
+</div>

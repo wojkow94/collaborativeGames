@@ -1,0 +1,6 @@
+﻿@model  List<ProjektGrupowy.Models.Game.Common.Player>
+
+@foreach (var player in Model)
+{
+    @Html.Partial("Partials/PlayerLabel", player)
+}

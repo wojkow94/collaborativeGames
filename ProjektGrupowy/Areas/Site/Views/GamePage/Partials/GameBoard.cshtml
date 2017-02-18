@@ -1,0 +1,52 @@
+﻿@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Game.Common
+@using ProjektGrupowy.Models.Core
+
+@model ProjektGrupowy.Models.Game.Instances.GameInstance
+
+<link rel="stylesheet" href="~/Styles/App/Game/GameBoard.css">
+
+<style>
+    .board {
+        background: url("@Platform.GetImage(Model.Definition.BackgorundImageId)");
+    }
+</style>
+
+<div class="board">
+
+    @foreach (RegionContainer container in Model.Definition.Board.RegionContainers)
+    {
+        <div id="@container.Id"
+             class="regionContainer"
+             style="position: absolute;
+                    left: @container.X%;
+                    top: @container.Y%;
+                    width: @container.Width%;
+                    height: @container.Height%;">
+
+        @foreach (BoardRegion region in container.Regions)
+        {
+            if (container.Orientation != RegionContainer.OrientationType.HORIZONTAL)
+            {
+                <div id="@region.Id"
+                     data-accepted="@container.AcceptElementId"
+                     class="boardRegion verticalRegion" 
+                     style="background-color: rgba(@region.Color.R, @region.Color.G, @region.Color.B, @((region.Opacity.ToString().Replace(',','.'))));
+                            width: @((100.0 / container.Regions.Count).ToString().Replace(',', '.'))%;">
+                            @Html.Partial("Partials/BoardRegion", Model.GetAcceptedElements(container.Id, region.Id))
+                </div>
+            }
+            else
+            {
+                <div id="@region.Id"
+                     class="boardRegion horizontalRegion" 
+                     data-accepted="@container.AcceptElementId"
+                     style="background-color: rgba(@region.Color.R, @region.Color.G, @region.Color.B, @((region.Opacity.ToString().Replace(',','.'))));
+                            height: @((100.0 / container.Regions.Count).ToString().Replace(',', '.'))%;">
+                            @Html.Partial("Partials/BoardRegion", Model.GetAcceptedElements(container.Id, region.Id))
+                </div>
+            }
+        }
+        </div>
+    }
+</div>

@@ -1,0 +1,51 @@
+﻿@using ProjektGrupowy.Models.Core;
+
+<style>
+    .joinGameFormTable td {
+        padding: 10px;
+    }
+</style>
+
+<div class="header">
+    <h4>@ProjektGrupowy.Resources.Labels.JoinToGame</h4>
+</div>
+<form id="joinGameForm" method="post">
+    <table style="width:100%" class="joinGameFormTable">
+        <tr>
+            <td style="padding: 10px">@ProjektGrupowy.Resources.Labels.GameId</td>
+            <td>
+                <div class="ui input mini">
+                    <input name="gameId" />
+                </div>
+            </td>
+        </tr>
+        @if (!Platform.IsUserLogged())
+        {
+            <tr>
+                <td style="padding: 10px">@ProjektGrupowy.Resources.Labels.Nick</td>
+                <td>
+                    <div class="ui input mini">
+                        <input name="Nick" />
+                    </div>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td style="padding: 10px">@ProjektGrupowy.Resources.Labels.Password</td>
+            <td>
+                <div class="ui input mini">
+                    <input type="password" name="Password" />
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="errors"></div>
+
+    <div class="actions">
+        <button class="ui blue button submit mini">
+            @ProjektGrupowy.Resources.Labels.Join
+        </button>
+    </div>
+
+</form>

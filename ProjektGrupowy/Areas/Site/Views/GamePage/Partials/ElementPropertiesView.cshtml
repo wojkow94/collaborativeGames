@@ -1,0 +1,32 @@
+﻿@using ProjektGrupowy.Models.Game.Instances
+@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Core
+
+@model  ProjektGrupowy.Models.Game.Instances.ElementInstance
+
+@Html.Partial("Partials/ElementLabelView", @Model)
+
+@{
+    var game = Platform.GetGameInstanceById(Model.GameId);
+    var currentPlayer = @Platform.GetCurrentPlayer(game);
+}
+
+@if (@Platform.GetCurrentPlayer(Platform.GetGameInstanceById(Model.GameId)).IsModerator() || Model.PlayerId == currentPlayer.Id)
+{
+    <button class="ui button white basic mini icon btnEditElement" id="@Model.Id"><i class="edit icon"></i></button>
+}
+
+
+<table class="ui stripped very basic table">
+    @foreach (var attr in Model.Definition.Attributes)
+    {
+        <tr>
+            <td><b>@attr.Name</b></td>
+            <td>@Model[attr.Name]</td>
+        </tr>
+    }
+    <tr>
+        <td><b>Dodał:</b></td>
+        <td>@Platform.GetGameInstanceById(Model.GameId).GetPlayer(Model.PlayerId).Name</td>
+    </tr>
+</table>

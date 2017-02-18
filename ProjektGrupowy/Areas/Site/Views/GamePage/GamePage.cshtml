@@ -1,0 +1,131 @@
+﻿@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Game.Common
+@using ProjektGrupowy.Models.Database.DAO
+
+@model ProjektGrupowy.Models.Game.Instances.GameInstance
+
+
+@{
+    Layout = "~/Views/BaseLayout.cshtml";
+ }
+
+<link rel="stylesheet" href="~/Styles/App/Game/GamePage.css?v=2">
+
+<div class="tokenPopup">
+    <div class="ui segment">
+        <div class="ui form">
+            <div class="ui input mini field">
+                <label>@ProjektGrupowy.Resources.Labels.TokensCount: </label>
+                <input name="tokensCount" />
+            </div>
+            <div>
+                <button class="ui mini green button ok">Ok</button>
+                <button class="ui mini silver button cancel">@ProjektGrupowy.Resources.Labels.Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="leftColumn">
+    <div class="ui attached top label blue menuBar">
+        <div class="ui inverted dimmer">
+            <div class="ui loader"></div>
+        </div>
+        <button class="ui button blue mini icon" id="exitBtn" data-content="@ProjektGrupowy.Resources.Labels.Exit"><i class="reply icon"></i></button>
+        @Model.Definition.Name
+        <div class="ui buttons mini">
+
+        <button class="ui button blue mini icon" id="saveGame" data-content="@ProjektGrupowy.Resources.Labels.Save"><i class="save icon"></i></button>
+        <button class="ui button blue mini icon" id="showElementsBtn" data-content="@ProjektGrupowy.Resources.Labels.List"><i class="sidebar icon"></i></button>
+        <button class="ui button blue mini icon" id="showBoardBtn" data-content="@ProjektGrupowy.Resources.Labels.Board"><i class="table icon"></i></button>
+        </div>
+    </div>
+
+    <div class="ui label top attached" style="margin-top: 43px; background-color: deepskyblue; overflow:hidden">
+        @using (GameInstanceDAO dao = new GameInstanceDAO())
+        {
+            var game = dao.GetGameInstance(Model.Id);
+            <span>@game.Name - </span><span style="color: rgb(33, 133, 208)">@game.Created</span>
+        }
+    </div>
+
+    @{
+        var elements = new List<ElementDefinition>();
+    }
+
+    @foreach (var el in Model.Definition.Elements)
+    {
+        if (el.CanAdd(Platform.GetCurrentPlayer(Model)))
+        {
+            elements.Add(el);
+        }
+    }
+
+    @if (elements.Count > 0)
+    {
+        <div class="ui segment optionbox">
+            <span class="ui attached top label blue">@ProjektGrupowy.Resources.Labels.ProposeElement</span>
+            @foreach (var el in elements)
+            {
+                <button class="ui button basic mini addElement" style="margin-top: 8px" id="@(el.Id)" data-content="@el.Name">
+                    <img class="elementIcon" src="@Platform.GetImage(el.ImageIconId)" />
+                </button>
+            }    
+        </div>
+    }
+
+    @if (Model.Definition.Tokens.Count() > 0)
+    {
+        <div class="ui segment optionbox">
+            <span class="ui attached top label blue">@ProjektGrupowy.Resources.Labels.Tokens</span>
+            <div class="tokensContainer">
+            </div>
+        </div>
+    }
+
+    <div class="ui segment optionbox">
+        <span class="ui attached top label blue">@ProjektGrupowy.Resources.Labels.Participants</span>
+        <div class="playersContainer">
+        </div>
+    </div>
+
+</div>
+<div class="rightColumn">
+
+    <div class="ui segment optionbox" style="display: flex; flex-direction: column; max-height: 50%; padding: 0px">
+        <div style="overflow: hidden; min-height: 30px">
+            <span class="ui attached top label blue">@ProjektGrupowy.Resources.Labels.ProposedElements</span>
+        </div>
+        <div style="overflow: hidden; flex: 1;">
+            <div class="proposedElementsContainer" style="height: 100%; overflow: auto; padding: 10px">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ui segment optionbox">
+        <span class="ui attached top label blue">@ProjektGrupowy.Resources.Labels.ElementProperties</span>
+        <div class="elementProperties">
+        </div>
+    </div>
+
+</div>
+
+<div class="centerColumn">
+    <div class="ui inverted dimmer">
+        <div class="ui loader"></div>
+    </div>
+    <div class="contentContainer"></div>
+</div>
+
+<script src="~/Scripts/Libraries/jquery.signalR-2.2.1.min.js"></script>
+<script src="/signalr/hubs"></script>
+
+<script>
+    @{ 
+        var currentPlayer = Platform.GetCurrentPlayer(Model);
+    }
+
+    ProjektGrupowy.App.Site.pages.GamePage.init(@Model.Id, @Model.Definition.Id, @currentPlayer.Id);
+</script>

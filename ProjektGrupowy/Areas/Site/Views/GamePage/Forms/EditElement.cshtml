@@ -1,0 +1,62 @@
+﻿@using ProjektGrupowy.Models.Game.Instances;
+@using ProjektGrupowy.Models.Game.Common
+
+@model ProjektGrupowy.Models.Game.Instances.ElementInstance
+
+@{  ElementInstance i = new ElementInstance(); }
+
+<div class="header">
+    @ProjektGrupowy.Resources.Labels.EditElement: @Model.Definition.Name
+</div>
+<form id="formEditElement" method="post">
+    <table style="width:100%">
+        @foreach (var attr in @Model.Definition.Attributes)
+        {
+            if (attr.IsAuto == true)
+            {
+                continue;
+            }
+
+            <tr>
+                <td style="padding: 10px">
+                    @attr.Name
+                </td>
+                <td style="padding: 10px">
+                    @if (attr.Type.Id == AttributeType.Type.INT || attr.Type.Id == AttributeType.Type.FLOAT || attr.Type.Id == AttributeType.Type.STRING)
+                    {
+                        <div class="ui input">
+                            <input name="@attr.Name" value="@Model.GetAttributeValue(attr.Name)"/>
+                        </div>
+                    }
+                    else if (attr.Type.Id == AttributeType.Type.ENUM)
+                    {
+                        <select class="ui dropdown" name="@attr.Name">
+
+                            @foreach (var enumValue in ((EnumType)attr.Type).Domain)
+                            {
+                                <option value="@enumValue" @(Model.GetAttributeValue(attr.Name) == enumValue ? "selected" : "")>@enumValue</option>
+                            }
+                        </select>
+                    }
+                    else if (attr.Type.Id == AttributeType.Type.LONGTEXT)
+                    {
+                        <div class="ui form">
+                            <div class="field">
+                                <textarea name="@attr.Name">@Model.GetAttributeValue(attr.Name)</textarea>
+                            </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="errors" style="padding: 10px"></div>
+
+    <div class="actions">
+        <button class="ui green button">
+            @ProjektGrupowy.Resources.Labels.Edit
+        </button>
+    </div>
+
+</form>

@@ -1,0 +1,44 @@
+﻿@using ProjektGrupowy.Models.Game.Definitions
+@model ElementDefinition
+
+<table class="ui table stripped">
+    <thead>
+        <tr>
+            <th>Atrybut</th>
+            <th>Typ</th>
+            <th data-content="Wartość atrybutu zależy od położenia na planszy">Automatyczny</th>
+            <th>Wymagany</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attr in Model.Attributes)
+        {
+            <tr>
+                <td>@attr.Name</td>
+                <td>@attr.Type.Id.ToString()</td>
+                <td style="text-align:center">
+                    @if (attr.IsAuto == true) {
+                        <i class='ui blue icon checkmark' /> 
+                    }
+                    else {
+                        <i class='ui blue icon remove' /> 
+                    }
+                </td>
+                <td style="text-align:center">
+                    @if (attr.IsRequired == true)
+                    {
+                        <i class='ui blue icon checkmark' />
+                    }
+                    else
+                    {
+                        <i class='ui blue icon remove' />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $('th').popup();
+</script>

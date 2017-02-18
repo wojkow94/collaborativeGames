@@ -1,0 +1,10 @@
+﻿@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Game.Instances
+@model  TokenBunch
+<span class="ui label image @(Model.Token.Color) tokenLabel"
+      style="margin: 2px; border: 0px solid silver !important"
+      id="@Model.Token.Id">
+    <img src="@Platform.GetImage(Model.Token.ImageIconId)" />
+    @Model.Amount
+    <span>$</span>
+</span>

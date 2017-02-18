@@ -1,0 +1,41 @@
+﻿.board {
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+}
+
+.hoverRegion {
+    background-color: yellow !important;
+    opacity: 0.5 !important;
+}
+
+.addIcon {
+    margin-left: 3px !important;
+    opacity: 0.5 !important;
+}
+
+.addIcon:hover {
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
+.elementLabelBtn:hover {
+    cursor: pointer !important;
+}
+
+
+
+.verticalRegion {
+    float: left;
+    overflow-y: auto;
+    overflow-x: auto;
+    left: 0%;
+    height: 100%;
+}
+
+.horizontalRegion {
+    left: 0%;
+    overflow-x: auto;
+    overflow-y: auto;
+    top: 0%;
+    width: 100%;
+}

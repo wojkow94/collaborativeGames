@@ -1,0 +1,34 @@
+﻿
+@using System;
+
+@model Exception
+
+<!DOCTYPE html>
+
+@if (@Model != null)
+{
+    <div class="ui segment">
+        <span class="ui label blue top attached">
+            <h3>@Model.Message</h3>
+        </span>
+
+
+        <table class="ui stripped very basic table">
+            @foreach (var k in @Model.Data.Keys)
+                {
+                <tr>
+                    <td><b>@k</b></td>
+                    <td>@Model.Data[k].ToString()</td>
+                </tr>
+            }
+        </table>
+
+
+
+            @if (@Model.InnerException != null)
+            {
+                @Html.Partial("ExceptionView", @Model.InnerException)
+            }
+</div>
+}
+

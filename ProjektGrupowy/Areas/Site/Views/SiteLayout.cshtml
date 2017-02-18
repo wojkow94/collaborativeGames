@@ -1,0 +1,63 @@
+﻿@using ProjektGrupowy.Models.Core;
+
+@{
+    Layout = "~/Views/BaseLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Styles/App/Site/Site.css?v=2">
+    <div class="top">
+        <table style="height: 100%;">
+            <tr>
+                <td style="width: 100%">
+                    <h1><a href="/Site" style="color: white">@ProjektGrupowy.Resources.Labels.AppName</a></h1>
+                </td>
+
+@if (!Platform.IsUserLogged())
+{
+                <td style="vertical-align: bottom;">
+                    <div class="menuItem" id="btnLogin">@ProjektGrupowy.Resources.Labels.Login</div>
+                </td>
+                <td style="vertical-align: bottom;">
+                    <div class="menuItem" id="btnRegister">@ProjektGrupowy.Resources.Labels.Register</div>
+                </td>
+}
+                
+
+@if (Platform.IsUserLogged())
+{
+                <td>
+                    <div class="ui dropdown">
+                        <div class="avatar">@User.Identity.Name[0]</div>
+                        <div class="menu">
+                            <a class="item" id="btnEditProfileBtn">@ProjektGrupowy.Resources.Labels.EditProfile</a>
+                            <a class="item" id="btnLogout">@ProjektGrupowy.Resources.Labels.Logout</a>
+                        </div>
+                    </div>
+                    
+                </td>
+}
+                <td>
+                    <div class="langBox">
+                        <div class="ui search selection dropdown mini lang">
+                            <input id="selectLanguage" name="language" type="hidden">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Select language</div>
+                            <div class="menu">
+                                <div class="item" data-value="en"><i class="gb flag"></i>English</div>
+                                <div class="item" data-value="pl"><i class="pl flag"></i>Polski</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+<div class="body">
+    @RenderBody()
+</div>
+
+
+<script>
+    ProjektGrupowy.App.Site.pages.Layout.init();
+</script>

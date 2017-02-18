@@ -1,0 +1,60 @@
+﻿@using ProjektGrupowy.Models.Game.Definitions;
+@using ProjektGrupowy.Models.Game.Common;
+@model ProjektGrupowy.Models.Game.Definitions.ElementDefinition
+
+<div class="header">
+    <h4>@ProjektGrupowy.Resources.Labels.AddElement: @Model.Name</h4>
+</div>
+<form id="formAddElement" method="post">
+    <table style="width:100%">
+        @foreach (var attr in @Model.Attributes)
+        {
+            if (attr.IsAuto == true)
+            {
+                continue;
+            }
+
+            <tr>
+                <td style="padding: 10px">
+                    @attr.Name
+                </td>
+                <td style="padding: 10px">
+                    @if (attr.Type.Id == AttributeType.Type.INT || attr.Type.Id == AttributeType.Type.FLOAT || attr.Type.Id == AttributeType.Type.STRING)
+                    {
+                        <div class="ui input mini">
+                            <input name="@attr.Name" />
+                        </div>
+                    }
+                    else if (attr.Type.Id == AttributeType.Type.ENUM)
+                    {
+                        <select class="ui dropdown mini" name="@attr.Name">
+
+                            @foreach (var enumValue in ((EnumType)attr.Type).Domain)
+                            {
+                                <option value="@enumValue">@enumValue</option>
+                            }
+                        </select>
+                    }
+                    else if (attr.Type.Id == AttributeType.Type.LONGTEXT)
+                    {
+                        <div class="ui form mini">
+                            <div class="field">
+                                <textarea name="@attr.Name"></textarea>
+                            </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="errors" style="padding: 10px"></div>
+
+    <div class="actions">
+        <button class="ui right green labeled icon button mini">
+            @ProjektGrupowy.Resources.Labels.Add
+            <i class="plus icon"></i>
+        </button>
+    </div>
+
+</form>

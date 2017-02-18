@@ -1,0 +1,12 @@
+﻿@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Game.Instances
+@using ProjektGrupowy.Models.Game.Common
+
+
+@model Player
+@foreach (TokenBunch bunch in Model.Tokens)
+{
+    @Html.Partial("Partials/TokenLabelView", bunch);
+}
+
+<button style="float: right" class="ui mini icon button config"><i class="ui icon settings"></i></button>

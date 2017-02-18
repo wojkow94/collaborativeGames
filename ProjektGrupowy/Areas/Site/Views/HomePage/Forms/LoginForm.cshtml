@@ -1,0 +1,46 @@
+﻿@using ProjektGrupowy.Models.Core;
+
+<div class="header">
+    @ProjektGrupowy.Resources.Labels.Login
+</div>
+
+<style>
+    .loginFormTable td {
+        padding: 10px;
+    }
+</style>
+
+<form class="ui form" id="formLogin" method="post">
+    <table style="width:50%; margin: auto" class="loginFormTable">
+        <tr>
+            <td>
+                @ProjektGrupowy.Resources.Labels.Email
+            </td>
+            <td>
+                <div class="ui input">
+                    <input name="Email" type="text">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @ProjektGrupowy.Resources.Labels.Password
+            </td>
+            <td>
+                <div class="ui input">
+                    <input name="Pass" type="password">
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="errors"></div>
+
+    <div class="actions">
+        <button type="submit" class="ui blue button">
+            @ProjektGrupowy.Resources.Labels.Login
+        </button>
+    </div>
+
+</form>

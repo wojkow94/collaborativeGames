@@ -1,0 +1,59 @@
+﻿@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Game.Common
+
+@{
+    Layout = "~/Areas/Site/Views/SiteLayout.cshtml";
+}
+
+@{
+
+    var gamesAsModerator = Platform.GetGamesByUser(Permission.TYPE.Moderator);
+    var gamesAsPlayer = Platform.GetGamesByUser(Permission.TYPE.Normal);
+}
+
+@if ((gamesAsModerator == null || gamesAsModerator.Count <= 0) && (gamesAsPlayer == null || gamesAsPlayer.Count <= 0))
+{
+    <div class="centered">
+        <div>
+            <div class="ui button blue massive" id="btnNewGame">
+                <i class="ui icon plus"></i>
+                @ProjektGrupowy.Resources.Labels.OpenGame
+            </div>
+        </div>
+        <div>
+            <div class="ui button blue massive" id="btnJoinGame">
+                <i class="ui icon plus"></i>
+                @ProjektGrupowy.Resources.Labels.JoinToGame
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <center>
+        <div class="ui button blue" id="btnNewGame">
+            <i class="ui icon plus"></i>
+            @ProjektGrupowy.Resources.Labels.OpenGame
+        </div>
+        <div class="ui button blue" id="btnJoinGame">
+            <i class="ui icon plus"></i>
+            @ProjektGrupowy.Resources.Labels.JoinToGame
+        </div>
+    </center>
+
+    
+    <div class="ui pointing secondary menu">
+        <a class="active item" data-tab="asModerator">@ProjektGrupowy.Resources.Labels.GamesYouHaveCreated</a>
+        <a class="item" data-tab="asPlayer">@ProjektGrupowy.Resources.Labels.GamesYouAreParticipating</a>
+    </div>
+    <div class="ui active tab" data-tab="asModerator">
+        @Html.Partial("Partials/GamesList", gamesAsModerator)
+    </div>
+    <div class="ui tab" data-tab="asPlayer">
+        @Html.Partial("Partials/GamesList", gamesAsPlayer)
+    </div>
+}
+
+<script>
+    $('.ui.menu .item').tab();
+</script>

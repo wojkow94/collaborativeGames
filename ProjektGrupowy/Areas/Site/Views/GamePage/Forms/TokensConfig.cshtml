@@ -1,0 +1,50 @@
+﻿@using ProjektGrupowy.Models.Game.Instances;
+@using ProjektGrupowy.Models.Game.Common
+@using ProjektGrupowy.Models.Core
+
+@model ProjektGrupowy.Models.Game.Instances.GameInstance
+
+
+<form id="tokensConfigForm" method="post">
+
+    <div style="padding: 10px">
+        <table class="ui table very basic">
+            <thead>
+                <tr>
+                    <th>Gracz</th>
+                    @foreach (var token in Model.Definition.Tokens)
+                    {
+                        <th style="text-align: center"><img src="@Platform.GetImage(token.ImageIconId)" style="width: 32px" /></th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var player in Model.Players)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        @foreach (var token in Model.Definition.Tokens)
+                        {
+                            <td style="text-align: center">
+                                <div class="ui input">
+                                    <input name="@(player.Id+"."+token.Id)" value="@player.GetTokenAmount(token)" />
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="errors">
+
+    </div>
+
+    <div class="actions">
+        <button class="ui button green submit" style="float: right">Ok</button>
+        <div style="clear: both"></div>
+    </div>
+
+</form>

@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Projekt grupowy</title>
+
+    <link rel="stylesheet" href="~/Styles/Libraries/SemanticUI/semantic.min.css">
+
+    
+    @Scripts.Render("~/bundles/libs")
+    @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/site")
+    @Scripts.Render("~/bundles/mobile")
+
+
+    <!--<script src="~/Typescripts/build/App.js"></script>-->
+</head>
+<body>
+    <div class="ui modal small" >
+        <div class="ui active inverted dimmer">
+            <div class="ui loader"></div>
+        </div>
+        <div class="ui segment" style="min-height: 200px"></div>
+    </div>
+
+      @RenderBody()
+</body>
+</html>

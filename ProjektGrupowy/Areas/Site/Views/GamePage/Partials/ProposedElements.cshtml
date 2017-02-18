@@ -1,0 +1,16 @@
+﻿@using ProjektGrupowy.Models.Game.Instances
+
+@model List<ProjektGrupowy.Models.Game.Instances.ElementInstance>
+
+
+@foreach (ElementInstance el in Model)
+{
+    @Html.Partial("Partials/ElementLabelView", el)
+}
+
+@if (Model.Count() == 0)
+{
+    <div class="ui blue label">
+        Brak
+    </div>
+}

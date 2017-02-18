@@ -1,0 +1,55 @@
+﻿@using ProjektGrupowy.Models.Game.Instances
+@using ProjektGrupowy.Models.Game.Definitions
+@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Site.ViewModels
+
+@model  ProjektGrupowy.Models.Game.Instances.ElementInstance
+
+@{ 
+    var game = Platform.GetGameInstanceById(Model.GameId);
+    var currentPlayer = @Platform.GetCurrentPlayer(game);
+}
+
+<div class="ui label image elementLabel"
+     style="margin: 2px; background-color: @Model.Color !important; color: white"
+     id="@Model.Id"
+     data-elementdefid="@Model.Definition.Id"
+     data-content="@Model.GetAttributeValue(Model.Region.PopupAttribute)">
+
+    
+        <img src="@Platform.GetImage(Model.Definition.ImageIconId)" />
+    
+        @Model[Model.Definition.PrintedAttribute]
+
+        @if (Model.Definition.CanAccept(currentPlayer) && Model.Tokens.Count == 0)
+        {
+            <i class="delete icon rejectElementBtn" data-elementdefid="@Model.Definition.Id" id="@Model.Id"></i>
+        }
+    
+    @if (Model.Definition.Tokens.Count > 0)
+    {
+        <div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 5px; padding: 3px; margin-top: 10px">
+            @foreach (TokenDefinition token in Model.Definition.Tokens)
+            {
+                <span>
+                    <img src="@Platform.GetImage(token.ImageIconId)" />
+                    @Model.GetTokenAmount(token) / @Model.GetAttributeValue(token.ReferenceAttribute)
+                </span>
+            }
+        </div>
+    }
+
+
+    @if (Model.Tokens.Count > 0 && Model.Tokens.Count(t => t.Amount > 0) > 0)
+    {
+        <div style="margin-top: 10px;">
+            @foreach (TokenBunch bunch in Model.Tokens)
+            {
+                if (bunch.Amount > 0)
+                {
+                    @Html.Partial("Partials/BoardTokenLabel", new BoardTokenLabel(bunch, currentPlayer.Id, game.GetPlayerById(bunch.PlayerId).Name, Model.Id))
+                }
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,57 @@
+﻿
+@using ProjektGrupowy.Models.Core;
+
+<style>
+    .registerFormTable td {
+        padding: 10px;
+    }
+</style>
+
+<div class="header">
+    @ProjektGrupowy.Resources.Labels.Register
+</div>
+<form id="formRegister" method="post">
+    <table style="width:50%; margin: auto" class="registerFormTable">
+        <tr>
+            <td>
+                @ProjektGrupowy.Resources.Labels.Email
+            </td>
+            <td>
+                <div class="ui input">
+                    <input name="Email" type="text">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @ProjektGrupowy.Resources.Labels.Password
+            </td>
+            <td>
+                <div class="ui input">
+                    <input name="Pass" type="password">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @ProjektGrupowy.Resources.Labels.RePassword
+            </td>
+            <td>
+                <div class="ui input">
+                    <input name="RePass" type="password">
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="errors"></div>
+
+    <div class="actions">
+        <button type="submit" class="ui blue button">
+            @ProjektGrupowy.Resources.Labels.Register
+        </button>
+    </div>
+
+</form>

@@ -1,0 +1,101 @@
+﻿@using ProjektGrupowy.Models.Core
+@using ProjektGrupowy.Models.Game.Definitions
+
+@model ProjektGrupowy.Models.Game.Instances.GameInstance
+
+
+
+@{ Layout = "~/Views/BaseLayout.cshtml"; }
+
+<link rel="stylesheet" href="~/Styles/App/Game/GamePage.css">
+
+@{
+
+    var currentPlayer = Platform.GetCurrentPlayer(Model);
+    var elements = new List<ElementDefinition>();
+
+    foreach (var el in Model.Definition.Elements)
+    {
+        if (el.CanAdd(currentPlayer))
+        {
+            elements.Add(el);
+        }
+    }
+}
+
+
+<div class="ui pointing secondary inverted blue menu" style="margin-top: 0px; width: 100%; position: fixed; z-index: 10">
+    @if (elements.Count > 0)
+    {
+        <a class="item">
+            <div class="ui dropdown">
+                <i class="ui icon add"></i>
+                <div class="menu">
+                    @foreach (var el in elements)
+                    {
+                        <span class="item">
+                            <img class="elementIcon btnAddElement" id="@el.Id" src="@Platform.GetImage(el.ImageIconId)" />
+                        </span>
+                    }
+                </div>
+            </div>
+        </a>
+    }
+    <a class="active item" id="btnProposed" data-tab="proposed">@ProjektGrupowy.Resources.Labels.Proposed</a>
+    <a class="item" id="btnAccepted" data-tab="accepted">@ProjektGrupowy.Resources.Labels.Accepted</a>
+</div>
+
+
+<div class="body" style="padding: 10px; padding-top: 50px">
+    <div class="ui inverted dimmer">
+        <div class="ui loader"></div>
+    </div>
+
+    <div class="ui active tab listProposed" data-tab="proposed">
+        @foreach (var elDef in Model.Definition.Elements)
+        {
+            <div class="ui fluid accordion" id="@elDef.Id" style="padding: 10px">
+                @foreach (var element in @Model.GetProposedElements(elDef.Id))
+                {
+                    @Html.Partial("Partials/ElementListItem", element);
+                }
+            </div>
+        }
+    </div>
+    <div class="ui tab listAccepted" data-tab="accepted">
+        @foreach (var elDef in Model.Definition.Elements)
+        {
+            <div class="ui fluid accordion" id="@elDef.Id" style="padding: 10px">
+                @foreach (var element in @Model.GetAcceptedElements(elDef.Id))
+                {
+                    @Html.Partial("Partials/ElementListItem", element);
+                }
+            </div>
+        }
+    </div>
+
+    <div class="ui label blue bottom attached tokensContainer" style="position: fixed">
+        
+    </div>
+</div>
+
+<div class="tokenPopup">
+    <div class="ui segment">
+        <div class="ui form">
+            <div class="ui input mini field">
+                <label>@ProjektGrupowy.Resources.Labels.TokensCount: </label>
+                <input name="tokensCount" />
+            </div>
+            <div>
+                <button class="ui mini green button ok">Ok</button>
+                <button class="ui mini silver button cancel">@ProjektGrupowy.Resources.Labels.Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Libraries/jquery.signalR-2.2.1.min.js"></script>
+<script src="/signalr/hubs"></script>
+<script>
+    ProjektGrupowy.App.Mobile.pages.GamePage.init(@Model.Id, @Model.Definition.Id, @Platform.GetCurrentPlayer(Model).Id);
+</script>

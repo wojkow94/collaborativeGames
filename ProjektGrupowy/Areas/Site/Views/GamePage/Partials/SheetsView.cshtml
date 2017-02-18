@@ -1,0 +1,22 @@
+﻿@model ProjektGrupowy.Models.Game.Definitions.GameDefinition
+
+
+<!--span class="ui label">Filtruj:</span>
+
+<div class="ui green buttons">
+    <div class="ui button active">
+        <img class="tinyElementIcon" src="/Resources/Images/anchor.png" />
+    </div>
+    <div class="ui button">
+        <img class="tinyElementIcon" src="/Resources/Images/propeller.png" />
+    </div>
+</div>-->
+
+<div style="padding: 10px">
+    @foreach (var elDef in Model.Elements)
+    {
+        <div class="sheetContainer" id="@(elDef.Id)">
+
+        </div>
+    }
+</div>

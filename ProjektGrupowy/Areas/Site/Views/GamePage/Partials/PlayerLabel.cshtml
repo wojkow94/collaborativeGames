@@ -1,0 +1,15 @@
+﻿@model  ProjektGrupowy.Models.Game.Common.Player
+@using ProjektGrupowy.Models.Game.Common
+@using ProjektGrupowy.Models.Platform
+@using ProjektGrupowy.Models.Core
+
+
+@{ var isOnline = ConnectionManager.IsOnline(Model.GameId, Model.Id); }
+
+<div class="ui label @(isOnline ? "blue" : "silver") playerLabel" style="margin: 2px;" id="@Model.Id">
+    @Model.Name
+    @if (Model.Type == Permission.TYPE.Moderator)
+    {
+        <text>(M)</text>
+    }
+</div>
