@@ -23,7 +23,7 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
-    <TypeScriptToolsVersion>1.9</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -220,6 +220,8 @@
     <Compile Include="Models\Games\AvaxStorming\AvaxStormingBuilder.cs" />
     <Compile Include="Models\Games\Buy A Feature\BuyAFeature.cs" />
     <Compile Include="Models\Games\Buy A Feature\BuyAFeatureBuilder.cs" />
+    <Compile Include="Models\Games\How-Now-WowMatrix\HowNowWowMatrix.cs" />
+    <Compile Include="Models\Games\How-Now-WowMatrix\HowNowWowMatrixBuilder.cs" />
     <Compile Include="Models\Games\SpeedBoat\SpeedBoat.cs" />
     <Compile Include="Models\Games\SpeedBoat\SpeedBoatBuilder.cs" />
     <Compile Include="Models\Game\Common\Color.cs" />
