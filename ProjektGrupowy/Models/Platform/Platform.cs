@@ -6,6 +6,7 @@ using ProjektGrupowy.Models.Game.Definitions;
 using ProjektGrupowy.Models.Game.Instances;
 using ProjektGrupowy.Models.Games.AvaxStorming;
 using ProjektGrupowy.Models.Games.BuyAFeature;
+using ProjektGrupowy.Models.Games.How_Now_WowMatrix;
 using ProjektGrupowy.Models.Games.SpeedBoat;
 using ProjektGrupowy.Models.Platform;
 using ProjektGrupowy.Models.Platform.Authentication;
@@ -22,12 +23,13 @@ namespace ProjektGrupowy.Models.Core
         private static Dictionary<int, GameDefinition> GameDefinitions;
         private static Dictionary<int, GameInstance> Games;
 
-        public static System.Type[] GameTypes = 
+        public static System.Type[] GameTypes =
         {
             typeof(GameDefinition),
             typeof(BuyAFeature),
             typeof(AvaxStorming),
-            typeof(SpeedBoat)
+            typeof(SpeedBoat),
+            typeof(HowNowWowMatrix)
         };
 
         static public GameAuthentication GameAuthentication = new GameAuthentication();
@@ -86,9 +88,10 @@ namespace ProjektGrupowy.Models.Core
             GameDefinitions = new Dictionary<int, GameDefinition>();
             Games = new Dictionary<int, GameInstance>();
 
-            //(new SpeedBoatBuilder()).Build();
-            //(new BuyAFeatureBuilder()).Build();
-            //(new AvaxStormingBuilder()).Build();
+            (new SpeedBoatBuilder()).Build();
+            (new BuyAFeatureBuilder()).Build();
+            (new AvaxStormingBuilder()).Build();
+            (new HowNowWowMatrixBuilder()).Build();
         }
 
 
