@@ -15,14 +15,6 @@ namespace ProjektGrupowy.Models.Games.How_Now_WowMatrix
 
         private void CheckElement(ElementInstance element)
         {
-            if (element.GetAttributeValue("Nazwa") == "Pożądany")
-            {
-                element.Color = element.Definition.Colors[1];
-            }
-            else
-            {
-                element.Color = element.Definition.Colors[0];
-            }
         }
 
         override public void OnEditElement(GameInstance game, ElementInstance element)

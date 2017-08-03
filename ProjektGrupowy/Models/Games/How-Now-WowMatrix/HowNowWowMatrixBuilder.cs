@@ -23,42 +23,29 @@ namespace ProjektGrupowy.Models.Games.How_Now_WowMatrix
             idea = new ElementDefinition("Idea");
 
             idea.AddAttribute(new AttributeDefinition("Nazwa", new StringType()));
-            //       feature.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
-            //       feature.AddAttribute(new AttributeDefinition("Moduł", new StringType(), isAuto: true));
-            //       feature.AddAttribute(new AttributeDefinition("Priorytet", new EnumType(new string[] { "Niski", "Normalny", "Wysoki" }), isAuto: true));
-            //       feature.AddAttribute(new AttributeDefinition("Status", new EnumType(new string[] { "Wymagany", "Pożądany" }), defValue: "Wymagany"));
+            idea.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
 
-            idea.Colors.Add("LightSeaGreen");
-            idea.Colors.Add("orange");
+            idea.Colors.Add("grey");
             idea.PrintedAttribute = "Nazwa";
-            idea.ImageIconId = images.AddImage("/Resources/Images/gears.png");
+            idea.ImageIconId = images.AddImage("/Resources/Images/idea.png");
 
             matrix.AddElementDefinition(idea);
-            //        module.ImageIconId = images.AddImage("/Resources/Images/module.png");
         }
 
         private void BuildBoard()
         {
-            
-            RegionContainer[] originalityContainers = new RegionContainer[2];
-            RegionContainer[] feasibilityContainers = new RegionContainer[2];
-            int[] pos1 = { 5, 50 };
+            RegionContainer[] originalityContainers = new RegionContainer[3];
 
-            for (int i = 0; i < 2; i++)
+            var coordinates = new List<System.Drawing.Point> { new System.Drawing.Point(5, 50), new System.Drawing.Point(50, 5) , new System.Drawing.Point(50, 50) };
+
+            for (int i = 0; i < 3; i++)
             {
-                originalityContainers[i] = new RegionContainer(5, pos1[i], 45, 45, RegionContainer.OrientationType.HORIZONTAL);
+                originalityContainers[i] = new RegionContainer(coordinates[i].X, coordinates[i].Y, 45, 45, RegionContainer.OrientationType.VERTICAL);
                 originalityContainers[i].SetAcceptElement(idea);
                 BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Nazwa");
                 region.PopupAttribute = "Nazwa";
                 originalityContainers[i].AddRegion(region);
                 matrix.Board.AddContainer(originalityContainers[i]);
-
-                feasibilityContainers[i] = new RegionContainer(50, pos1[i], 45, 45, RegionContainer.OrientationType.VERTICAL);
-                feasibilityContainers[i].SetAcceptElement(idea);
-                BoardRegion region2 = new BoardRegion(new Color(0, 0, 0), 0.0f, "Nazwa");
-                region2.PopupAttribute = "Nazwa";
-                feasibilityContainers[i].AddRegion(region2);
-                matrix.Board.AddContainer(feasibilityContainers[i]);
             }
         }
 
