@@ -35,6 +35,11 @@ namespace ProjektGrupowy.Models.Database.DAO
             return db.GameDefinitions.Where(def => def.ID == id).FirstOrDefault();
         }
 
+        public bool IsGameDefined(string name)
+        {
+            return db.GameDefinitions.FirstOrDefault(def => def.Name == name) != null;
+        }
+
         public GameDefinition RestoreGameDefinition(int id)
         {
             var dbGame = GetGameDefinition(id);

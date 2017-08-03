@@ -68,7 +68,8 @@ namespace ProjektGrupowy.Models.Games.BuyAFeature
 
             using (var dao = new GameDefinitionDAO())
             {
-                dao.AddGameDefinition(baf);
+                if (!dao.IsGameDefined(baf.Name))
+                    dao.AddGameDefinition(baf);
             }
         }
     }

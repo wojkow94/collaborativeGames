@@ -96,7 +96,8 @@ namespace ProjektGrupowy.Models.Games.AvaxStorming
 
             using (var dao = new GameDefinitionDAO())
             {
-                dao.AddGameDefinition(avax);
+                if (!dao.IsGameDefined(avax.Name))
+                    dao.AddGameDefinition(avax);
             }
         }
     }

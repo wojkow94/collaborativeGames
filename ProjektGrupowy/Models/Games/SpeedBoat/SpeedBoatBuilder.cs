@@ -88,7 +88,8 @@ namespace ProjektGrupowy.Models.Games.SpeedBoat
 
             using (var dao = new GameDefinitionDAO())
             {
-                dao.AddGameDefinition(speedBoat);
+                if (!dao.IsGameDefined(speedBoat.Name))
+                    dao.AddGameDefinition(speedBoat);
             }
         }
     }
