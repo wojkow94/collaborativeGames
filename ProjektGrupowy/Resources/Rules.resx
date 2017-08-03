@@ -141,6 +141,18 @@
   <data name="BuyaFeature_Tokens" xml:space="preserve">
     <value>Reprezentuje pieniądze jakie można postawić na daną funkcjonalność.</value>
   </data>
+  <data name="HowNowWowMatrix_Applications" xml:space="preserve">
+    <value>Planowanie projektu&amp;Szacowanie priorytetów&amp;Analiza strukturalna projektu&amp;Planowanie procesu</value>
+  </data>
+  <data name="HowNowWowMatrix_Description" xml:space="preserve">
+    <value>DupaDupaDupa</value>
+  </data>
+  <data name="HowNowWowMatrix_Elements" xml:space="preserve">
+    <value>ReprezentujeDupe</value>
+  </data>
+  <data name="HowNowWowMatrix_Tokens" xml:space="preserve">
+    <value />
+  </data>
   <data name="SpeedBoat_Applications" xml:space="preserve">
     <value>Ocena iteracji/procesu&amp;Analiza ryzyka&amp;Ocena wad i zalet produktu&amp;Retrospektywa sprintu</value>
   </data>
