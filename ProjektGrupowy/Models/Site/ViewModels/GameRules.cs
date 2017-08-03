@@ -18,7 +18,7 @@ namespace ProjektGrupowy.Models.Site.ViewModels
         public GameRules(GameDefinition gameDef)
         {
             GameDefinition = gameDef;
-            string gameName = gameDef.Name.Replace(" ", "");
+            string gameName = gameDef.Name.Replace(" ", "").Replace("-","");
 
             ResourceManager rm = Resources.Rules.ResourceManager;
             Description = rm.GetString(gameName + "_Description");
