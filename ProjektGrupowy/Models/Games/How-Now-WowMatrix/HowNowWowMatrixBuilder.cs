@@ -59,8 +59,7 @@ namespace ProjektGrupowy.Models.Games.How_Now_WowMatrix
 
             using (var dao = new GameDefinitionDAO())
             {
-                if(!dao.IsGameDefined(matrix.Name))
-                    dao.AddGameDefinition(matrix);
+                dao.AddGameDefinition(matrix);
             }
         }
     }
