@@ -78,6 +78,7 @@ ProjektGrupowy.App.Mobile.pages.GamePage = (function () {
             addElement($(config.listProposed), event.elDefId, event.elementId);
         });
 
+        //IMPORTANT!! on accept
         GameModel.events.addEventListener(GameModel.enums.events.onAcceptElement, function (event) {
             //getElement($(config.listProposed), event.elDefId, event.elementId).appendTo(getList($(config.listAccepted), event.elDefId));
             removeElement($(config.listProposed), event.elDefId, event.elementId);

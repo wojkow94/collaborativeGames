@@ -93,6 +93,8 @@ ProjektGrupowy.App.Common.Models.Game = (function () {
             });
         },
 
+        //IMPORTANT!! accept element
+
         acceptElement: function (elDefId, elementId, containerId, regionId, eldefId) {
             $.post(GameController.actions.isElementAccepted(elementId), function (result) {
                 $.post(GameController.actions.acceptElement(elementId, containerId, regionId), function (result2) {

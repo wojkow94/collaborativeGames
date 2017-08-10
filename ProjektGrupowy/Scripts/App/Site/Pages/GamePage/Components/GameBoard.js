@@ -72,7 +72,7 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
             models.Game.events.addEventListener(models.GameEvents.onEditElement, function(event) {
                 refreshElement(event.elementId);
             }),
-
+            //IMPORTANT!! on accept
             models.Game.events.addEventListener(models.GameEvents.onAcceptElement, function(event) {
 
                 var label = $(container).find(config.elementLabel + '#' + event.elementId);
@@ -222,6 +222,7 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
         });
     }
 
+    //IMPORTANT!!
     function configureElementDragNDrop() {
 
         configureElementsDrag($(container).find(config.elementLabel));
