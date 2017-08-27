@@ -126,8 +126,12 @@ namespace ProjektGrupowy.Areas.Api.Controllers
                 try
                 {
                     var element = Game.GetElement(elementId);
+
                     if (element.Definition.CanAccept(Platform.GetCurrentPlayer(Game)))
                     {
+                        if (!element.CanBeAccepted) return Json(Result.Succes);
+                        element.CanBeAccepted = false;
+
                         if (!Game.AcceptElement(elementId, containerId, regionId))
                         {
                             return Json(Result.Failure);
@@ -168,6 +172,13 @@ namespace ProjektGrupowy.Areas.Api.Controllers
             {
                 canAccept = Game.Definition.GetElementDefinition(elementDefId).CanAccept(Platform.GetCurrentPlayer(Game))
             }).AsSuccess());
+        }
+
+        public JsonResult ReleaseElement(int gameId, int elementId)
+        {
+            Game.GetElement(elementId).CanBeAccepted = true;
+
+            return Json(Result.Succes);
         }
 
         public JsonResult AddElement(int gameId, int elementDefinitionId, FormCollection elementData)

@@ -115,6 +115,13 @@ ProjektGrupowy.App.Api.Game = (function () {
                 });
             },
 
+            releaseElement: function (elementId) {
+                return controller.action('ReleaseElement', {
+                    gameId: _gameId,
+                    elementId: elementId
+                });
+            },
+
             setTokensConfig: function(){
                 return controller.action('SetTokensConfig', {
                     gameId: _gameId,

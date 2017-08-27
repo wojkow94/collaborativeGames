@@ -174,13 +174,15 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
         });
     }
 
-    function enableElementDrag(element) {
+    function enableElementDrag(id, element) {
         $(element).draggable({
             helper: 'clone',
             revert: 'invalid',
             scroll: false,
             start: function () {
                 $(this).css("opacity", 0.2);
+                models.Game.releaseElement(id);
+                console.log("starting drag " + id);
             },
             stop: function () {
                 $(this).css("opacity", 1);
@@ -207,7 +209,7 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
                     canAccept[id] = result.Data.canAccept;
                     elements.each(function (index, label) {
                         if (label.dataset.elementdefid == id && canAccept[id] === true) {
-                            enableElementDrag(label);
+                            enableElementDrag(index, label);
                         }
                     });
                 });
@@ -215,7 +217,7 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
             else {
                 elements.each(function (index, label) {
                     if (label.dataset.elementdefid == id && canAccept[id] === true) {
-                        enableElementDrag(label);
+                        enableElementDrag(index, label);
                     }
                 });
             }
