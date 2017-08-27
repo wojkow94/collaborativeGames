@@ -115,20 +115,6 @@ ProjektGrupowy.App.Api.Game = (function () {
                 });
             },
 
-            canAcceptElement: function (elementId) {
-                return controller.action('CanAcceptElement', {
-                    gameId: _gameId,
-                    elementId: elementId
-                });
-            },
-
-            releaseElement: function (elementId) {
-                return controller.action('ReleaseElement', {
-                    gameId: _gameId,
-                    elementId: elementId
-                });
-            },
-
             setTokensConfig: function(){
                 return controller.action('SetTokensConfig', {
                     gameId: _gameId,

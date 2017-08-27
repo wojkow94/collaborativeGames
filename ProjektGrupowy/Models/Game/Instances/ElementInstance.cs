@@ -19,9 +19,6 @@ namespace ProjektGrupowy.Models.Game.Instances
         public ElementDefinition Definition { get; set; }
 
         [XmlIgnore]
-        public bool CanBeAccepted { get; set; }
-
-        [XmlIgnore]
         public BoardRegion Region { get; set; }
 
 
@@ -61,7 +58,6 @@ namespace ProjektGrupowy.Models.Game.Instances
             Definition = def;
             Color = def.Colors.Count > 0 ? def.Colors[0] : "";
             Values = new string[Definition.Attributes.Count];
-            CanBeAccepted = true;
 
             for (int i = 0; i < Definition.Attributes.Count; i++)
             {
