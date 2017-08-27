@@ -134,6 +134,12 @@ ProjektGrupowy.App.Common.Models.Game = (function () {
             });
         },
 
+        canAcceptElement: function (elementId, callback) {
+            $.post(GameController.actions.canAcceptElement(elementId), function (data) {
+                callback(data);
+            });
+        },
+
         releaseElement: function(elementId) {
             $.post(GameController.actions.releaseElement(elementId), function (data) {
                 
