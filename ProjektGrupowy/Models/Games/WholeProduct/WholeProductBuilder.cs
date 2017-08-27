@@ -19,7 +19,7 @@ namespace ProjektGrupowy.Models.Games.WholeProduct
             _idea.AddAttribute(new AttributeDefinition("Oryginalność", new EnumType(new[] { "Ogromna", "Duża", "Średnia", "Mała" }), isAuto: true));
             _idea.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
 
-            _idea.ImageIconId = _images.AddImage("/Resources/Images/anchor.png");
+            _idea.ImageIconId = _images.AddImage("/Resources/Images/idea.png");
             _idea.PrintedAttribute = "Nazwa";
             _idea.Colors.Add("rgb(219, 40, 40)");
 
@@ -32,7 +32,7 @@ namespace ProjektGrupowy.Models.Games.WholeProduct
 
             for (int i = 0; i < 4; i++)
             {
-                containers[i] = new RegionContainer(i*12, i*12, 100-24*i, 100-24*i, RegionContainer.OrientationType.VERTICAL);
+                containers[i] = new RegionContainer(i*12+8, i*12+8, 85-24*i, 85-24*i, RegionContainer.OrientationType.VERTICAL);
                 containers[i].SetAcceptElement(_idea);
 
                 BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Nazwa");
