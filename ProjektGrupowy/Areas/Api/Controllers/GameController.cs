@@ -137,6 +137,8 @@ namespace ProjektGrupowy.Areas.Api.Controllers
                     {
                         throw new Error.AccessDenied();
                     }
+
+                    element.CanBeAccepted = false;
                     return Json(Result.Succes);
                 }
                 catch (Error.AppError ex)
@@ -159,6 +161,14 @@ namespace ProjektGrupowy.Areas.Api.Controllers
         {
             return Json(new Result(new {
                 accepted = Game.GetElement(elementId).IsAccepted
+            }).AsSuccess());
+        }
+
+        public JsonResult CanAcceptElement(int gameId, int elementId)
+        {
+            return Json(new Result(new
+            {
+                canAccept = Game.GetElement(elementId).CanBeAccepted
             }).AsSuccess());
         }
 

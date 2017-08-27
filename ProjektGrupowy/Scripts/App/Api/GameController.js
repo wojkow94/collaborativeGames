@@ -119,6 +119,13 @@ ProjektGrupowy.App.Api.Game = (function () {
                 return controller.action('SetTokensConfig', {
                     gameId: _gameId,
                 });
+            },
+
+            canAcceptElement: function (elementId) {
+                return controller.action('CanAcceptElement', {
+                    gameId: _gameId,
+                    elementId: elementId
+                });
             }
         }
     }

@@ -241,6 +241,13 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
                 containerId = this.parentElement.id;
                 regionId = this.id;
 
+                models.Game.canAcceptElement(ui.draggable[0].id, function (result) {
+                    if (result.Data.canAccept == true) {
+                        dropElement(ui.draggable[0].id, containerId, regionId, ui.draggable[0].dataset.elementdefid);
+                    }
+                });
+
+
                 $(this).find(config.elementsContainer).append($(ui.draggable[0]));
             }
         });

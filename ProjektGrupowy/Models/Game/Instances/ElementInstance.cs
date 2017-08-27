@@ -16,6 +16,9 @@ namespace ProjektGrupowy.Models.Game.Instances
         public ElementInstance() {}
 
         [XmlIgnore]
+        public bool CanBeAccepted { get; set; }
+
+        [XmlIgnore]
         public ElementDefinition Definition { get; set; }
 
         [XmlIgnore]
@@ -58,6 +61,7 @@ namespace ProjektGrupowy.Models.Game.Instances
             Definition = def;
             Color = def.Colors.Count > 0 ? def.Colors[0] : "";
             Values = new string[Definition.Attributes.Count];
+            CanBeAccepted = true;
 
             for (int i = 0; i < Definition.Attributes.Count; i++)
             {
