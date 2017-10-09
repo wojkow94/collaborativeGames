@@ -32,7 +32,7 @@ namespace ProjektGrupowy.Models.Games.WholeProduct
 
             for (int i = 0; i < 4; i++)
             {
-                containers[i] = new RegionContainer(i*12+8, i*12+8, 85-24*i, 85-24*i, RegionContainer.OrientationType.VERTICAL);
+                containers[i] = new RegionContainer(i*22, i*25, 100-(i*22), 25, RegionContainer.OrientationType.VERTICAL);
                 containers[i].SetAcceptElement(_idea);
 
                 BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Nazwa");
