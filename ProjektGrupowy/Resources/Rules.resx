@@ -165,6 +165,18 @@
   <data name="SpeedBoat_Tokens" xml:space="preserve">
     <value />
   </data>
+  <data name="SWOTAnalysis_Applications" xml:space="preserve">
+    <value>Porządkowanie i analiza informacji</value>
+  </data>
+  <data name="SWOTAnalysis_Description" xml:space="preserve">
+    <value>SWOT – popularna heurystyczna technika służąca do porządkowania i analizy informacji.</value>
+  </data>
+  <data name="SWOTAnalysis_Elements" xml:space="preserve">
+    <value>Reprezentuje silną stronę projektu.&amp;Reprezentuje słabą stronę projektu.&amp;Reprezentuje szansę.&amp;Reprezentuje zagrożenie.</value>
+  </data>
+  <data name="SWOTAnalysis_Tokens" xml:space="preserve">
+    <value />
+  </data>
   <data name="WholeProduct_Applications" xml:space="preserve">
     <value>Identyfikacja wyróżników produktu&amp;Określenie kierunku rozwoju produktu</value>
   </data>
