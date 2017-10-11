@@ -66,7 +66,7 @@ namespace ProjektGrupowy.Models.Games.SWOTAnalysis
         {
             RegionContainer[] originalityContainers = new RegionContainer[4];
 
-            var coordinates = new List<System.Drawing.Point> { new System.Drawing.Point(5,10), new System.Drawing.Point(5, 60), new System.Drawing.Point(55, 10), new System.Drawing.Point(55, 60) };
+            var coordinates = new List<System.Drawing.Point> { new System.Drawing.Point(5,13), new System.Drawing.Point(5, 63), new System.Drawing.Point(55, 13), new System.Drawing.Point(55, 63) };
 
             for (int i = 0; i < 4; i++)
             {
