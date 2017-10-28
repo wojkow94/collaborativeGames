@@ -34,7 +34,7 @@ namespace ProjektGrupowy.Models.Games.How_Now_WowMatrix
 
         private void BuildBoard()
         {
-            RegionContainer[] originalityContainers = new RegionContainer[3];
+            RegionContainer[] originalityContainers = new RegionContainer[4];
 
             var coordinates = new List<System.Drawing.Point> { new System.Drawing.Point(5, 50), new System.Drawing.Point(50, 5) , new System.Drawing.Point(50, 50) };
 
@@ -47,6 +47,12 @@ namespace ProjektGrupowy.Models.Games.How_Now_WowMatrix
                 originalityContainers[i].AddRegion(region);
                 matrix.Board.AddContainer(originalityContainers[i]);
             }
+       //     originalityContainers[3] = new RegionContainer(coordinates[0].X+10, coordinates[0].Y+10, 25, 25, RegionContainer.OrientationType.VERTICAL);
+       //     originalityContainers[3].SetAcceptElement(idea);
+       //     BoardRegion region2 = new BoardRegion(new Color(0, 250, 0), 1.0f, "Nazwa");
+       //     region2.PopupAttribute = "Nazwa";
+       //     originalityContainers[3].AddRegion(region2);
+       //     matrix.Board.AddContainer(originalityContainers[3]);
         }
 
         public void Build()
