@@ -7,6 +7,7 @@ using ProjektGrupowy.Models.Game.Instances;
 using ProjektGrupowy.Models.Games.AvaxStorming;
 using ProjektGrupowy.Models.Games.BuyAFeature;
 using ProjektGrupowy.Models.Games.How_Now_WowMatrix;
+using ProjektGrupowy.Models.Games.SWOTAnalysis;
 using ProjektGrupowy.Models.Games.SpeedBoat;
 using ProjektGrupowy.Models.Platform;
 using ProjektGrupowy.Models.Platform.Authentication;
@@ -14,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
+using ProjektGrupowy.Models.Games.WholeProduct;
 
 namespace ProjektGrupowy.Models.Core
 {
@@ -29,7 +31,9 @@ namespace ProjektGrupowy.Models.Core
             typeof(BuyAFeature),
             typeof(AvaxStorming),
             typeof(SpeedBoat),
-            typeof(HowNowWowMatrix)
+            typeof(HowNowWowMatrix),
+            typeof(WholeProduct),
+			typeof(SWOTAnalysis)
         };
 
         static public GameAuthentication GameAuthentication = new GameAuthentication();
@@ -92,6 +96,8 @@ namespace ProjektGrupowy.Models.Core
             (new BuyAFeatureBuilder()).Build();
             (new AvaxStormingBuilder()).Build();
             (new HowNowWowMatrixBuilder()).Build();
+			(new SWOTAnalysisBuilder()).Build();
+            new WholeProductBuilder().Build();
         }
 
 

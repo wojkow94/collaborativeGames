@@ -224,6 +224,10 @@
     <Compile Include="Models\Games\How-Now-WowMatrix\HowNowWowMatrixBuilder.cs" />
     <Compile Include="Models\Games\SpeedBoat\SpeedBoat.cs" />
     <Compile Include="Models\Games\SpeedBoat\SpeedBoatBuilder.cs" />
+    <Compile Include="Models\Games\SWOTAnalysis\SWOTAnalysisBuilder.cs" />
+    <Compile Include="Models\Games\SWOTAnalysis\SWOTAnalysis.cs" />
+    <Compile Include="Models\Games\WholeProduct\WholeProduct.cs" />
+    <Compile Include="Models\Games\WholeProduct\WholeProductBuilder.cs" />
     <Compile Include="Models\Game\Common\Color.cs" />
     <Compile Include="Models\Database\DAO\PermissionDAO.cs" />
     <Compile Include="Models\Database\DataAccessObject.cs" />
@@ -473,10 +477,12 @@
     <EmbeddedResource Include="Resources\Rules.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Rules.en.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Rules.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Rules.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Errors.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -489,10 +495,12 @@
     <EmbeddedResource Include="Resources\Labels.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Labels.en.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Labels.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

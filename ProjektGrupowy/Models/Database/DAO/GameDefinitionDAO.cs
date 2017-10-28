@@ -22,6 +22,12 @@ namespace ProjektGrupowy.Models.Database.DAO
                 Rate = 0.0f,
                 ImageID = gameDef.BackgorundImageId
             };
+
+            var definedGame = db.GameDefinitions.FirstOrDefault(def => def.Name == dbGame.Name);
+
+            if (definedGame != null)
+                db.GameDefinitions.Remove(definedGame);
+
             db.GameDefinitions.Add(dbGame);
             db.SaveChanges();
 

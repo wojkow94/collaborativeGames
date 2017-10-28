@@ -9,29 +9,31 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
     }
 
     var components = {
-        TokensPopup:    ProjektGrupowy.App.Site.components.GamePage.TokensPopup
+        TokensPopup: ProjektGrupowy.App.Site.components.GamePage.TokensPopup
     }
 
     var models = {
-        Game:       ProjektGrupowy.App.Common.Models.Game,
+        Game: ProjektGrupowy.App.Common.Models.Game,
         GameEvents: ProjektGrupowy.App.Common.Models.Game.enums.events
     }
 
     //-------------------------------------------------
 
     var config = {
-        elementLabel:       ".elementLabel",
-        tokenLabel:         ".tokenLabel",
-        rejectElement:      ".rejectElementBtn",
-        boardRegion:        ".boardRegion",
-        regionContainer:    ".regionContainer",
-        elementsContainer:  ".elementsContainer"
+        elementLabel: ".elementLabel",
+        tokenLabel: ".tokenLabel",
+        rejectElement: ".rejectElementBtn",
+        boardRegion: ".boardRegion",
+        regionContainer: ".regionContainer",
+        elementsContainer: ".elementsContainer"
     };
 
     var container = undefined;
     var modelSubscriptions = [];
     var loaded = false;
     var canAccept = {};
+    var containerId = 0;
+    var regionId = 0;
 
     //-------------------------------------------------
 
@@ -62,18 +64,18 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
 
         modelSubscriptions.push(
 
-            models.Game.events.addEventListener(models.GameEvents.onMoveElement, function(event) {
+            models.Game.events.addEventListener(models.GameEvents.onMoveElement, function (event) {
 
                 var label = $(container).find(config.elementLabel + '#' + event.elementId);
                 var region = $(container).find(config.regionContainer + '#' + event.containerId).find(config.boardRegion + '#' + event.regionId + ' ' + config.elementsContainer);
                 region.append(label);
             }),
 
-            models.Game.events.addEventListener(models.GameEvents.onEditElement, function(event) {
+            models.Game.events.addEventListener(models.GameEvents.onEditElement, function (event) {
                 refreshElement(event.elementId);
             }),
-
-            models.Game.events.addEventListener(models.GameEvents.onAcceptElement, function(event) {
+            //IMPORTANT!! on accept
+            models.Game.events.addEventListener(models.GameEvents.onAcceptElement, function (event) {
 
                 var label = $(container).find(config.elementLabel + '#' + event.elementId);
                 $.get(viewControllers.game.actions.boardElementLabel(event.elementId), function (data) {
@@ -99,7 +101,7 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
                 refreshElement(event.elementId);
             }),
 
-            models.Game.events.addEventListener(models.GameEvents.onRejectElement, function(event) {
+            models.Game.events.addEventListener(models.GameEvents.onRejectElement, function (event) {
                 $(config.boardRegion).find(config.elementLabel).filter('#' + event.elementId).remove();
             })
         );
@@ -184,12 +186,12 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
             },
             stop: function () {
                 $(this).css("opacity", 1);
+                dropElement(element.id, containerId, regionId, element.dataset.elementdefid);
             }
         });
     }
 
-    function configureElementsDrag(elements)
-    {
+    function configureElementsDrag(elements) {
         console.log('configure drag');
         console.log(elements);
 
@@ -222,6 +224,7 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
         });
     }
 
+    //IMPORTANT!!
     function configureElementDragNDrop() {
 
         configureElementsDrag($(container).find(config.elementLabel));
@@ -229,13 +232,22 @@ ProjektGrupowy.App.Site.components.GamePage.GameBoard = (function () {
         $(container).find(config.boardRegion).droppable({
             hoverClass: "hoverRegion",
             accept: function (element) {
-                return $(element).attr("data-elementdefid") == $(this).attr("data-accepted");
+                return $(element).attr("data-elementdefid") === $(this).attr("data-accepted");
             },
             drop: function (event, ui) {
                 $(ui.draggable[0]).css("left", 0);
                 $(ui.draggable[0]).css("top", 0);
 
-                dropElement(ui.draggable[0].id, this.parentElement.id, this.id, ui.draggable[0].dataset.elementdefid);
+                containerId = this.parentElement.id;
+                regionId = this.id;
+
+                models.Game.canAcceptElement(ui.draggable[0].id, function (result) {
+                    if (result.Data.canAccept == true) {
+                        dropElement(ui.draggable[0].id, containerId, regionId, ui.draggable[0].dataset.elementdefid);
+                    }
+                });
+
+
                 $(this).find(config.elementsContainer).append($(ui.draggable[0]));
             }
         });

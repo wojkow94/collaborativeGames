@@ -3,3 +3,4 @@ ProjektGrupowy/bin
 ProjektGrupowy/obj
 PublishProfiles
 /.vs/config/applicationhost.config
+*.suo

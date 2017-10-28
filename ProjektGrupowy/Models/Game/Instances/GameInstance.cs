@@ -169,6 +169,7 @@ namespace ProjektGrupowy.Models.Game.Instances
                 element[a.Name] = "";
             }
             element.IsAccepted = false;
+            element.CanBeAccepted = true;
         }
 
         public OrderedElementsSet GetOrderedElements(int elementDefId, SortMethod sorting)

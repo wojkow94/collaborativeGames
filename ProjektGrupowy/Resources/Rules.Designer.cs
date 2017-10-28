@@ -203,5 +203,77 @@ namespace ProjektGrupowy.Resources {
                 return ResourceManager.GetString("SpeedBoat_Tokens", resourceCulture);
             }
         }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Porządkowanie i analiza informacji.
+        /// </summary>
+        public static string SWOTAnalysis_Applications {
+            get {
+                return ResourceManager.GetString("SWOTAnalysis_Applications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SWOT – popularna heurystyczna technika służąca do porządkowania i analizy informacji..
+        /// </summary>
+        public static string SWOTAnalysis_Description {
+            get {
+                return ResourceManager.GetString("SWOTAnalysis_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reprezentuje silną stronę projektu.&amp;Reprezentuje słabą stronę projektu.&amp;Reprezentuje szansę.&amp;Reprezentuje zagrożenie..
+        /// </summary>
+        public static string SWOTAnalysis_Elements {
+            get {
+                return ResourceManager.GetString("SWOTAnalysis_Elements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// </summary>
+        public static string SWOTAnalysis_Tokens {
+            get {
+                return ResourceManager.GetString("SWOTAnalysis_Tokens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Identyfikacja wyróżników produktu&amp;Określenie kierunku rozwoju produktu.
+        /// </summary>
+        public static string WholeProduct_Applications {
+            get {
+                return ResourceManager.GetString("WholeProduct_Applications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Gra Whole Produkt wspomaga proces identyfikacji tych cech produktu, które powodują, że staje się on bardziej atrakcyjny i wyróżnia się na tle konkurencji. Podejście to pozwala również określić kierunek dalszego rozwoju produktu, tak aby przyciągnąć nowych klientów..
+        /// </summary>
+        public static string WholeProduct_Description {
+            get {
+                return ResourceManager.GetString("WholeProduct_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reprezentuje cechę produktu..
+        /// </summary>
+        public static string WholeProduct_Elements {
+            get {
+                return ResourceManager.GetString("WholeProduct_Elements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// </summary>
+        public static string WholeProduct_Tokens {
+            get {
+                return ResourceManager.GetString("WholeProduct_Tokens", resourceCulture);
+            }
+        }
     }
 }
