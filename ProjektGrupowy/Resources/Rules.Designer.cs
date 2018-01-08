@@ -17,9 +17,9 @@ namespace ProjektGrupowy.Resources {
     /// </summary>
     // Ta klasa została automatycznie wygenerowana za pomocą klasy StronglyTypedResourceBuilder
     // przez narzędzie, takie jak ResGen lub Visual Studio.
-    // Aby dodać lub usunąć członka, edytuj plik .ResX, a następnie ponownie uruchom ResGen
+    // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Rules {
@@ -47,7 +47,7 @@ namespace ProjektGrupowy.Resources {
         }
         
         /// <summary>
-        ///   Zastępuje właściwość CurrentUICulture bieżącego wątku dla wszystkich
+        ///   Przesłania właściwość CurrentUICulture bieżącego wątku dla wszystkich
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -133,7 +133,7 @@ namespace ProjektGrupowy.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Planowanie projektu&amp;Szacowanie priorytetów&amp;Analiza strukturalna projektu&amp;Planowanie procesu.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Usystematyzowanie procesu wytwarzania&amp;Określanie poziomu trudności zadań&amp;Planowanie projektu&amp;Szacowanie priorytetów&amp;Planowanie procesu.
         /// </summary>
         public static string HowNowWowMatrix_Applications {
             get {
@@ -142,7 +142,7 @@ namespace ProjektGrupowy.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu DupaDupaDupa.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pole gry podzielone jest na 3 kwadraty symbolizujące następujące grupy: - HOW - trudne zadanie - niemożliwe do implementacji i wysokim stopni oryginalności, -WOW - łatwe zadania o wysokiej oryginalności - NOW- łatwe i mało oryginalne zadania. Gracze wypisują na kartkach swoje pomysły a następnie w formie głosowania przydzielają je do jedenj z grup..
         /// </summary>
         public static string HowNowWowMatrix_Description {
             get {
@@ -151,7 +151,7 @@ namespace ProjektGrupowy.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ReprezentujeDupe.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reprezentuje pomysł/ideę, którą można wdrożyć/zaimplementować.
         /// </summary>
         public static string HowNowWowMatrix_Elements {
             get {

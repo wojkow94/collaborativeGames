@@ -23,7 +23,7 @@
                     @if (attr.Type.Id == AttributeType.Type.INT || attr.Type.Id == AttributeType.Type.FLOAT || attr.Type.Id == AttributeType.Type.STRING)
                     {
                         <div class="ui input">
-                            <input name="@attr.Name" />
+                            <input name="@attr.Name"  id="testInput"/>
                         </div>
                     }
                     else if (attr.Type.Id == AttributeType.Type.ENUM)
@@ -60,3 +60,7 @@
     </div>
 
 </form>
+
+<script>
+    document.getElementById("testInput").focus();
+</script>

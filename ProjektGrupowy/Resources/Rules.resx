@@ -142,13 +142,13 @@
     <value>Reprezentuje pieniądze jakie można postawić na daną funkcjonalność.</value>
   </data>
   <data name="HowNowWowMatrix_Applications" xml:space="preserve">
-    <value>Planowanie projektu&amp;Szacowanie priorytetów&amp;Analiza strukturalna projektu&amp;Planowanie procesu</value>
+    <value>Usystematyzowanie procesu wytwarzania&amp;Określanie poziomu trudności zadań&amp;Planowanie projektu&amp;Szacowanie priorytetów&amp;Planowanie procesu</value>
   </data>
   <data name="HowNowWowMatrix_Description" xml:space="preserve">
-    <value>DupaDupaDupa</value>
+    <value>Pole gry podzielone jest na 3 kwadraty symbolizujące następujące grupy: - HOW - trudne zadanie - niemożliwe do implementacji i wysokim stopni oryginalności, -WOW - łatwe zadania o wysokiej oryginalności - NOW- łatwe i mało oryginalne zadania. Gracze wypisują na kartkach swoje pomysły a następnie w formie głosowania przydzielają je do jedenj z grup.</value>
   </data>
   <data name="HowNowWowMatrix_Elements" xml:space="preserve">
-    <value>ReprezentujeDupe</value>
+    <value>Reprezentuje pomysł/ideę, którą można wdrożyć/zaimplementować</value>
   </data>
   <data name="HowNowWowMatrix_Tokens" xml:space="preserve">
     <value />
