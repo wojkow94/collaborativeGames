@@ -15,12 +15,12 @@ namespace ProjektGrupowy.Models.Games.WholeProduct
         {
             _idea = new ElementDefinition("Idea");
 
-            _idea.AddAttribute(new AttributeDefinition("Nazwa", new StringType()));
-            _idea.AddAttribute(new AttributeDefinition("Oryginalność", new EnumType(new[] { "Ogromna", "Duża", "Średnia", "Mała" }), isAuto: true));
-            _idea.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
+            _idea.AddAttribute(new AttributeDefinition("Name", new StringType()));
+            _idea.AddAttribute(new AttributeDefinition("Area", new EnumType(new[] { "Potential", "Augmented", "Expected", "Generic" }), isAuto: true));
+            _idea.AddAttribute(new AttributeDefinition("Description", new LongTextType(), isAuto: false, isRequired: false));
 
             _idea.ImageIconId = _images.AddImage("/Resources/Images/idea.png");
-            _idea.PrintedAttribute = "Nazwa";
+            _idea.PrintedAttribute = "Name";
             _idea.Colors.Add("rgb(219, 40, 40)");
 
             _wholeProduct.AddElementDefinition(_idea);
@@ -35,9 +35,9 @@ namespace ProjektGrupowy.Models.Games.WholeProduct
                 containers[i] = new RegionContainer(i*22, i*25, 100-(i*22), 25, RegionContainer.OrientationType.VERTICAL);
                 containers[i].SetAcceptElement(_idea);
 
-                BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Nazwa");
-                region.Attributes.Add(new BoardRegion.Attribute("Oryginalność", ((EnumType)_idea.GetAttribute("Oryginalność").Type).Domain[i]));
-                region.PopupAttribute = "Nazwa";
+                BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Name");
+                region.Attributes.Add(new BoardRegion.Attribute("Area", ((EnumType)_idea.GetAttribute("Area").Type).Domain[i]));
+                region.PopupAttribute = "Name";
                 containers[i].AddRegion(region);
 
                 _wholeProduct.Board.AddContainer(containers[i]);

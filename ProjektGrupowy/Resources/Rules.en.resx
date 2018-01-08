@@ -166,13 +166,13 @@
     <value />
   </data>
   <data name="WholeProduct_Applications" xml:space="preserve">
-    <value>Identyfikacja wyróżników produktu&amp;Określenie kierunku rozwoju produktu</value>
+    <value>Identification of product differentiators&amp;Defining the direction of product development</value>
   </data>
   <data name="WholeProduct_Description" xml:space="preserve">
-    <value>Gra Whole Produkt wspomaga proces identyfikacji tych cech produktu, które powodują, że staje się on bardziej atrakcyjny i wyróżnia się na tle konkurencji. Podejście to pozwala również określić kierunek dalszego rozwoju produktu, tak aby przyciągnąć nowych klientów.</value>
+    <value>The Whole Product game supports the process of identifying these product features that make it more attractive and standing out from the competition. This approach also allows you to determine the direction of further product development to attract new customers.</value>
   </data>
   <data name="WholeProduct_Elements" xml:space="preserve">
-    <value>Reprezentuje cechę produktu.</value>
+    <value>Represents product feature</value>
   </data>
   <data name="WholeProduct_Tokens" xml:space="preserve">
     <value />
