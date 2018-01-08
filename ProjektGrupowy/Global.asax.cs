@@ -49,7 +49,7 @@ namespace ProjektGrupowy
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)
         {
-            string cultureName = "pl";
+            string cultureName = "en";
 
             // Attempt to read the culture cookie from Request
             HttpCookie cultureCookie = Request.Cookies["_culture"];

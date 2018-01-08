@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AvaxStorming_Applications" xml:space="preserve">
-    <value>Project planning&amp;Priority valuation&amp;Project structural analysis&amp;Operation planning</value>
+    <value>Planowanie projektu&amp;Szacowanie priorytetów&amp;Analiza strukturalna projektu&amp;Planowanie procesu</value>
   </data>
   <data name="AvaxStorming_Description" xml:space="preserve">
-    <value>Avax Storming game is designated to estimate project structure and it's priorities</value>
+    <value>Gra Avax Storming przeznaczona jest do oszacowania struktury i priorytetów w projekcie.</value>
   </data>
   <data name="AvaxStorming_Elements" xml:space="preserve">
-    <value>Represents one of product's functionalities&amp;Represents project module or project stage</value>
+    <value>Reprezentuje jakąś funkcjonalność produktu/projektu.&amp;Reprezentuje moduł projektu lub etap w projekcie.</value>
   </data>
   <data name="AvaxStorming_Tokens" xml:space="preserve">
     <value />
   </data>
   <data name="BuyaFeature_Applications" xml:space="preserve">
-    <value>Acquiring project requirements&amp;Priorities valuation&amp;Analysis of the demand for a given functionality</value>
+    <value>Pozyskiwanie wymagań&amp;Szacowanie priorytetów&amp;Analiza zapotrzebowania na daną funkcjonalność</value>
   </data>
   <data name="BuyaFeature_Description" xml:space="preserve">
-    <value>Buy A Feature game is designated to estimate range and specify priorities of project's features</value>
+    <value>Gra Buy a Feature przeznaczona jest do szacowania zakresu i określenia priorytetów elementów funkcjonalnych projektu.</value>
   </data>
   <data name="BuyaFeature_Elements" xml:space="preserve">
-    <value>Represents project's functionality</value>
+    <value>Reprezentuje jakąś funkcjonalność produktu/projektu.</value>
   </data>
   <data name="BuyaFeature_Tokens" xml:space="preserve">
-    <value>Represents money that can be spent on project functionalities</value>
+    <value>Reprezentuje pieniądze jakie można postawić na daną funkcjonalność.</value>
   </data>
   <data name="HowNowWowMatrix_Applications" xml:space="preserve">
     <value>Usystematyzowanie procesu wytwarzania&amp;Określanie poziomu trudności zadań&amp;Planowanie projektu&amp;Szacowanie priorytetów&amp;Planowanie procesu</value>
@@ -154,25 +154,25 @@
     <value />
   </data>
   <data name="SpeedBoat_Applications" xml:space="preserve">
-    <value>Iteration/process rating&amp;Risk analysis&amp;Evaluation of project's pros and cons&amp;Searching results&amp;Sprint Retrospective</value>
+    <value>Ocena iteracji/procesu&amp;Analiza ryzyka&amp;Ocena wad i zalet produktu&amp;Retrospektywa sprintu</value>
   </data>
   <data name="SpeedBoat_Description" xml:space="preserve">
-    <value>Speed Boat game is designated to identifying project's chances and threats. Project is presented as a boat, threats as anchors and chances as propellers</value>
+    <value>Gra Speed Boat przeznaczona jest do identyfikacji zagrożeń i szans projektu. Projekt przedstawiony jest jako łódź, zagrożenia jako kotwice, zaś szanse jako turbiny/śmigła.</value>
   </data>
   <data name="SpeedBoat_Elements" xml:space="preserve">
-    <value>Represents threat, flaw, something that slows down the project.&amp;Represents chance, advantage, something that speeds up the project.</value>
+    <value>Reprezentuje zagrożenie, wadę, obiekt opóźniający projekt.&amp;Reprezentuje szansę, zaletę, obiekt przyśpieszający projekt.</value>
   </data>
   <data name="SpeedBoat_Tokens" xml:space="preserve">
     <value />
   </data>
   <data name="SWOTAnalysis_Applications" xml:space="preserve">
-    <value>Organizing and analyzing information&amp;Strategy building&amp;Decision-making&amp;Viability study</value>
+    <value>Porządkowanie i analiza informacji&amp;Budowanie strategii&amp;Podejmowanie decyzji</value>
   </data>
   <data name="SWOTAnalysis_Description" xml:space="preserve">
-    <value>SWOT Analysis  is an acronym for strengths, weaknesses, opportunities, and threats and is a structured planning method that evaluates those four elements of an organization, project or business venture.</value>
+    <value>SWOT – popularna heurystyczna technika służąca do porządkowania i analizy informacji.</value>
   </data>
   <data name="SWOTAnalysis_Elements" xml:space="preserve">
-    <value>Represents project's strengths.&amp;Represents project's weaknesses.&amp;Represents project's chances.&amp;Represents project's threats.</value>
+    <value>Reprezentuje silną stronę projektu.&amp;Reprezentuje słabą stronę projektu.&amp;Reprezentuje szansę.&amp;Reprezentuje zagrożenie.</value>
   </data>
   <data name="SWOTAnalysis_Tokens" xml:space="preserve">
     <value />
