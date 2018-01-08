@@ -305,7 +305,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Labels.resx</DependentUpon>
     </Compile>
-    <Content Include="App_Data\xml\SpeedBoat.xml" />
     <Content Include="Resources\Images\avax_cover.png" />
     <Content Include="Resources\Images\baf.png" />
     <Content Include="Resources\Images\baf_cover.png" />
@@ -375,6 +374,8 @@
     <Content Include="Areas\Site\Views\NewGamePage\Partials\Rules.cshtml" />
     <Content Include="Areas\Site\Views\NewGamePage\Partials\ElementDescTable.cshtml" />
     <Content Include="Areas\Site\Views\GamePage\Forms\TokensConfig.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Scripts\Libraries\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\Libraries\jquery-1.6.4.js" />
     <Content Include="Scripts\Libraries\jquery-1.6.4.min.js" />
@@ -402,7 +403,9 @@
     <Content Include="Styles\Libraries\SemanticUI\themes\default\assets\fonts\icons.svg" />
     <Content Include="Styles\Libraries\SemanticUI\themes\default\assets\images\flags.png" />
     <Content Include="Styles\App\Site\Site.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -507,7 +510,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="App_Data\xml\" />
     <Folder Include="Scripts\App\Common\Components\" />
   </ItemGroup>
   <PropertyGroup>
