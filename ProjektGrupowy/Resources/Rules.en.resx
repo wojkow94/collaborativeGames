@@ -142,13 +142,13 @@
     <value>Reprezentuje pieniądze jakie można postawić na daną funkcjonalność.</value>
   </data>
   <data name="HowNowWowMatrix_Applications" xml:space="preserve">
-    <value>Planowanie projektu&amp;Szacowanie priorytetów&amp;Analiza strukturalna projektu&amp;Planowanie procesu</value>
+    <value>Project and process planning&amp;Risk analysis</value>
   </data>
   <data name="HowNowWowMatrix_Description" xml:space="preserve">
-    <value>TEst english lel</value>
+    <value>Divide large poster to 3 areas: HOW - here you can place ideas which are hard to implement but has large level of originality, WOW- easy to implement and original, NOW - easy to implement but  low level of originality</value>
   </data>
   <data name="HowNowWowMatrix_Elements" xml:space="preserve">
-    <value>ReprezentujeDupe</value>
+    <value>Represents idea/feature to implement</value>
   </data>
   <data name="HowNowWowMatrix_Tokens" xml:space="preserve">
     <value />
