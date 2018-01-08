@@ -15,7 +15,7 @@
         <h1>@Model.GameDefinition.Name</h1>
     </div>
 
-    <h2>Opis</h2>
+    <h2>Description</h2>
     @Model.Description
 
     
@@ -24,7 +24,7 @@
             <tr>
                 <th></th>
                 <th>Element</th>
-                <th>Opis</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +39,7 @@
         </tbody>
     </table>
 
-    <h2>Opis elementów</h2>
+    <h2>Elements description</h2>
     @foreach(var element in Model.GameDefinition.Elements)
     {
         <span style="padding: 5px; float: left">
@@ -50,13 +50,13 @@
 
         if (element.Tokens.Count() > 0)
         {
-            <h4>Żetony skojarzone z tym elementem</h4>
+            <h4>Tokens associated with this element</h4>
             <table class="ui table stripped">
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Żeton</th>
-                        <th>Opis</th>
+                        <th>Token</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,12 +73,12 @@
         }
     }
 
-    <h2>Przykład</h2>
+    <h2>Example</h2>
     <div style="text-align: center">
         <img src="@Platform.GetImage(Model.GameDefinition.BackgorundImageId).Replace(".", "_cover.")" style="width: 80%" />
     </div>
 
-    <h2>Zastosowanie</h2>
+    <h2>Application</h2>
     <div class="ui relaxed divided list">
         @foreach (var app in applications)
         {
