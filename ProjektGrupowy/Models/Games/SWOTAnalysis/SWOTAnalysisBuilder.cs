@@ -24,34 +24,34 @@ namespace ProjektGrupowy.Models.Games.SWOTAnalysis
         public void BuildElements()
         {
             strength = new ElementDefinition("Strength");
-            strength.AddAttribute(new AttributeDefinition("Nazwa", new StringType()));
-            strength.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
+            strength.AddAttribute(new AttributeDefinition("Name", new StringType()));
+            strength.AddAttribute(new AttributeDefinition("Description", new LongTextType(), isAuto: false, isRequired: false));
             strength.Colors.Add("grey");
-            strength.PrintedAttribute = "Nazwa";
+            strength.PrintedAttribute = "Name";
             strength.ImageIconId = images.AddImage("/Resources/Images/strength.png");
 
 
             weakness = new ElementDefinition("Weakness");
-            weakness.AddAttribute(new AttributeDefinition("Nazwa", new StringType()));
-            weakness.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
+            weakness.AddAttribute(new AttributeDefinition("Name", new StringType()));
+            weakness.AddAttribute(new AttributeDefinition("Description", new LongTextType(), isAuto: false, isRequired: false));
             weakness.Colors.Add("grey");
-            weakness.PrintedAttribute = "Nazwa";
+            weakness.PrintedAttribute = "Name";
             weakness.ImageIconId = images.AddImage("/Resources/Images/weakness.png");
 
 
             opportunity = new ElementDefinition("Opportunity");
-            opportunity.AddAttribute(new AttributeDefinition("Nazwa", new StringType()));
-            opportunity.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
+            opportunity.AddAttribute(new AttributeDefinition("Name", new StringType()));
+            opportunity.AddAttribute(new AttributeDefinition("Description", new LongTextType(), isAuto: false, isRequired: false));
             opportunity.Colors.Add("grey");
             opportunity.PrintedAttribute = "Nazwa";
             opportunity.ImageIconId = images.AddImage("/Resources/Images/opportunity.png");
 
 
             threat = new ElementDefinition("Threat");
-            threat.AddAttribute(new AttributeDefinition("Nazwa", new StringType()));
-            threat.AddAttribute(new AttributeDefinition("Opis", new LongTextType(), isAuto: false, isRequired: false));
+            threat.AddAttribute(new AttributeDefinition("Name", new StringType()));
+            threat.AddAttribute(new AttributeDefinition("Description", new LongTextType(), isAuto: false, isRequired: false));
             threat.Colors.Add("grey");
-            threat.PrintedAttribute = "Nazwa";
+            threat.PrintedAttribute = "Name";
             threat.ImageIconId = images.AddImage("/Resources/Images/threat.png");
 
 
@@ -71,8 +71,8 @@ namespace ProjektGrupowy.Models.Games.SWOTAnalysis
             for (int i = 0; i < 4; i++)
             {
                 originalityContainers[i] = new RegionContainer(coordinates[i].X, coordinates[i].Y, 40, 35, RegionContainer.OrientationType.VERTICAL);
-                BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Nazwa");
-                region.PopupAttribute = "Nazwa";
+                BoardRegion region = new BoardRegion(new Color(0, 0, 0), 0.0f, "Name");
+                region.PopupAttribute = "Name";
                 originalityContainers[i].AddRegion(region);
                 SWOT.Board.AddContainer(originalityContainers[i]);
             }
