@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -220,8 +221,12 @@
     <Compile Include="Models\Games\AvaxStorming\AvaxStormingBuilder.cs" />
     <Compile Include="Models\Games\Buy A Feature\BuyAFeature.cs" />
     <Compile Include="Models\Games\Buy A Feature\BuyAFeatureBuilder.cs" />
+    <Compile Include="Models\Games\FiveLs\FiveLs.cs" />
+    <Compile Include="Models\Games\FiveLs\FiveLsBuilder.cs" />
     <Compile Include="Models\Games\How-Now-WowMatrix\HowNowWowMatrix.cs" />
     <Compile Include="Models\Games\How-Now-WowMatrix\HowNowWowMatrixBuilder.cs" />
+    <Compile Include="Models\Games\MoodPlusPlus\MoodPlusPlus.cs" />
+    <Compile Include="Models\Games\MoodPlusPlus\MoodPlusPlusBuilder.cs" />
     <Compile Include="Models\Games\SpeedBoat\SpeedBoat.cs" />
     <Compile Include="Models\Games\SpeedBoat\SpeedBoatBuilder.cs" />
     <Compile Include="Models\Games\SWOTAnalysis\SWOTAnalysisBuilder.cs" />
@@ -411,6 +416,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>

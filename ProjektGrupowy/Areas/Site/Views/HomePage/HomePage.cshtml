@@ -2,6 +2,8 @@
 @using ProjektGrupowy.Models.Game.Common
 
 @{
+    /**/
+
     Layout = "~/Areas/Site/Views/SiteLayout.cshtml";
 }
 
@@ -27,6 +29,28 @@
             </div>
         </div>
     </div>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: auto;
+            text-align: left;
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <div class="footer">
+        <p>
+            Alicja Białous<br />
+            Monika Czwartosz<br />
+            Bartosz Stefański<br />
+            Bartosz Zaborowski<br />
+            Wojciech Kowalski<br />
+            Tomasz Piwowarski<br />
+            Mateusz Górski
+        </p>
+    </div>
 }
 else
 {
@@ -41,7 +65,7 @@ else
         </div>
     </center>
 
-    
+
     <div class="ui pointing secondary menu">
         <a class="active item" data-tab="asModerator">@ProjektGrupowy.Resources.Labels.GamesYouHaveCreated</a>
         <a class="item" data-tab="asPlayer">@ProjektGrupowy.Resources.Labels.GamesYouAreParticipating</a>

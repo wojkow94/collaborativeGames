@@ -16,6 +16,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using ProjektGrupowy.Models.Games.WholeProduct;
+using ProjektGrupowy.Models.Games.MoodPlusPlusT;
+using ProjektGrupowy.Models.Games.FiveLs;
 
 namespace ProjektGrupowy.Models.Core
 {
@@ -33,7 +35,9 @@ namespace ProjektGrupowy.Models.Core
             typeof(SpeedBoat),
             typeof(HowNowWowMatrix),
             typeof(WholeProduct),
-			typeof(SWOTAnalysis)
+			typeof(SWOTAnalysis),
+            typeof(MoodPlusPlus),
+            typeof(FiveLs)
         };
 
         static public GameAuthentication GameAuthentication = new GameAuthentication();
@@ -91,13 +95,15 @@ namespace ProjektGrupowy.Models.Core
         {
             GameDefinitions = new Dictionary<int, GameDefinition>();
             Games = new Dictionary<int, GameInstance>();
-
-            (new SpeedBoatBuilder()).Build();
-            (new BuyAFeatureBuilder()).Build();
-            (new AvaxStormingBuilder()).Build();
-            (new HowNowWowMatrixBuilder()).Build();
-			(new SWOTAnalysisBuilder()).Build();
+            
+            new SpeedBoatBuilder().Build();
+            new BuyAFeatureBuilder().Build();
+            new AvaxStormingBuilder().Build();
+            new HowNowWowMatrixBuilder().Build();
+			new SWOTAnalysisBuilder().Build();
             new WholeProductBuilder().Build();
+            new MoodPlusPlusBuilder().Build();
+            new FiveLsBuilder().Build();
         }
 
 
